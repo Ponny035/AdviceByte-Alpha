@@ -1,4 +1,4 @@
-# myDose
+# MyDose
 
 ## Documentation 
 ```
