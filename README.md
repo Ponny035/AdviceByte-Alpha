@@ -1,4 +1,4 @@
-# MyDose
+# AdviceByte
 
 ## Documentation 
 ```
