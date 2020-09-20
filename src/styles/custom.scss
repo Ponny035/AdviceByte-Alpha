@@ -1,0 +1,212 @@
+$theme-colors: (
+    'primary': #26292b,
+    'danger': #36ffb2,
+    'light': #5f6b92
+);
+
+/* @import "../../node_modules/bootstrap/scss/bootstrap.scss"; */
+
+.list-group-item-light {
+    color: #ffffff;
+    float: left;
+    background-color: #5f6b92;
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1.5px solid #535e80;
+}
+.table-light {
+    background-color: #5f6b92;
+    color: #ffffff;
+}
+.table {
+    width: 100%;
+    margin-bottom: 0rem;
+    color: #212529;
+}
+.border-custom {
+    color: #ffffff;
+    float: left;
+    background-color: #5f6b92;
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid #dee2e6;
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+}
+.bg-custom {
+    background-color: #e4e4e4;
+}
+.border-custom-up {
+    padding: 0rem 1rem;
+    padding-top: 0.5rem;
+    margin-bottom: 0;
+    background-color: #5f6b92;
+    position: relative;
+    display: block;
+    border-top-right-radius: 18px;
+    border-top-left-radius: 18px;
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+     border-radius: 10.25rem; */
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 0px;
+    background-color: #5f6b92;
+}
+.card-light {
+    background-color: #5f6b92;
+}
+.card-header {
+    padding: 0rem 1rem;
+    padding-top: 0.5rem;
+    margin-bottom: 0;
+    background-color: #5f6b92;
+    border-bottom: 1px solid rgba(155, 91, 91, 0.125);
+    border-radius: 10.25rem;
+}
+.text-rank-format-1 {
+    font-weight: bold;
+    font-size: 14px;
+}
+.seemore {
+    padding: 0.75rem 1.25rem;
+    color: rgba(226, 226, 226, 0.849);
+    font-size: 14px;
+}
+.text-rank-format-2 {
+    font-size: 12px;
+    float: left;
+}
+.my_div {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+}
+.boxspace-card {
+    padding-bottom: 1rem;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #e4e4e4;
+    border: 0px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+.td {
+    max-width: 18px;
+}
+.rounded-circle {
+    border-radius: 50% !important;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #e4e4e4;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.card-nav {
+    width: 110px;
+    height: 320px;
+    padding: 10px;
+    background-color: #202e6b;
+    border-radius: 10px 10px;
+}
+
+.first-space {
+    padding-top: 40%;
+    padding-left: 70%;
+}
+
+.header {
+    border-radius: 10px 10px 0px 0px;
+    padding: 5px;
+    background-color: #2a3942;
+}
+
+h3 {
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 1rem;
+}
+
+.iconM {
+    font-size: 18px;
+    margin-left: 170px;
+    color: #2f89fc;
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+.body li {
+    transition: 1s all;
+    font-family: 'Poppins';
+    font-size: 13px;
+    padding: 15px;
+    margin-left: -40px;
+    margin-top: 0px;
+    color: #b6bdd4;
+    list-style: none;
+    display: block;
+    border-top-right-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+}
+
+li:hover {
+    transition: 1s all;
+    color: white;
+    background-color: #3b4b77;
+    border-top-right-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    cursor: pointer;
+}
+
+.body > li {
+    float: left;
+}
+
+.body li ul {
+    background: #1e2b32;
+    margin-left: 280px;
+    margin-top: -38px;
+    display: none;
+    position: absolute;
+    border-top-right-radius: 15px 15px;
+    border-bottom-right-radius: 15px 15px;
+}
+
+.body li:hover > ul {
+    display: block;
+    cursor: pointer;
+}
+
+.navigator-font-active {
+    padding: 0.75rem;
+    font-family: poppins;
+    font-size: 12px;
+    font-weight: bold;
+    color: #828ba9;
+}
+.navigator-font-side {
+    padding: 0.25rem;
+    font-family: poppins;
+    font-size: 14px;
+    color: #a3aac1;
+}
+
+.svg {
+    width: 25px;
+    height: 25px;
+    color: white;
+}
+/* .svg:hover { 
+  width: 30px;
+  height: 30px;
+} */

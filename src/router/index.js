@@ -1,15 +1,72 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import { createRouter, createWebHistory } from 'vue-router'
 
-Vue.use(Router)
+import CenterContext from '../components/CenterContext.vue'
+import Mission from '../components/Mission.vue'
+import Stat from '../components/Stat.vue'
+import Dashboard from '../components/Dashboard.vue'
+import MissionBox from '../components/components-view/Mission-Box.vue'
+import Forum from '../components/components-view/Forum.vue'
+import Profile from '../components/components-view/Profile.vue'
+// import Week from '../components/Week.vue';
 
-export default new Router({
-  routes: [
+const routes = [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+        path: '/',
+        name: 'home'
+        // redirect: { name: 'main-view'},
+    },
+    {
+        path: '/dashboard',
+        component: Dashboard,
+        meta: { test: '150' },
+        name: 'dashboard',
+        children: [
+            {
+                path: '',
+                component: Forum,
+                name: 'forum',
+                meta: {}
+            }
+        ]
+    },
+    {
+        path: '/mission',
+        component: Mission,
+        name: 'mission',
+        children: [
+            {
+                path: ':id',
+                component: MissionBox,
+                name: 'algo',
+                meta: {}
+            }
+        ]
+    },
+    {
+        path: '/profile',
+        component: CenterContext,
+        meta: { test: '100' },
+        name: 'main-view',
+        children: [
+            {
+                path: '',
+                component: Profile,
+                name: 'profile',
+                meta: { displayTitle: 'Profile_Test' }
+            },
+            {
+                path: 'stat',
+                component: Stat,
+                name: 'stat',
+                meta: { displayTitle: 'Stat_Test' }
+            }
+        ]
     }
-  ]
+]
+
+const router = createRouter({
+    history: createWebHistory(process.env.BASE_URL),
+    routes
 })
+
+export default router
