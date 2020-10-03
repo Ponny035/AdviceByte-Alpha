@@ -8,12 +8,18 @@ import MissionBox from '../components/components-view/Mission-Box.vue'
 import Forum from '../components/components-view/Forum.vue'
 import Profile from '../components/components-view/Profile.vue'
 // import Week from '../components/Week.vue';
+import Charty from '../components/components-view/Chart.vue'
 
 const routes = [
     {
         path: '/',
         name: 'home'
         // redirect: { name: 'main-view'},
+    },
+    {
+        path: '/chart',
+        component: Charty,
+        name: ''
     },
     {
         path: '/dashboard',
