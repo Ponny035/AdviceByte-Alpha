@@ -46,14 +46,14 @@ export default {
                 ],
                 datasets: [
                     {
-                        label: 'Username',
+                        label: 'Kritchagamol',
                         backgroundColor: 'rgb(35, 50, 120, 0.5)',
-                        data: [20, 10, 10, 10, 10, 10, 10, 10]
+                        data: [40, 75, 75, 45, 85, 75, 65, 55]
                     },
                     {
                         label: 'Base Line',
                         backgroundColor: 'rgb(195, 195, 245, 0.3)',
-                        data: [40, 40, 40, 40, 40, 40, 40, 40]
+                        data: [47.29, 57.29, 70.52, 47.29, 71.67, 71.35, 69.38, 63.96]
                     }
                 ]
             },
