@@ -11,7 +11,7 @@
             <h4 class="font-weight-bold text-left">Spider Graph</h4>
             <div class="row">
                 <div class="empty-box">
-                    ..Coming Soon..
+                    <Chart></Chart>
                 </div>
             </div>
         </div>
@@ -27,7 +27,11 @@
 </template>
 
 <script>
+import Chart from './components-view/Chart';
 export default {
+    components: { 
+        Chart,
+    },
     name: 'HelloWorld',
     data() {
         return {
@@ -41,5 +45,10 @@ export default {
 <style scoped>
 .stat {
     margin-left: 5%;
+}
+.empty-box{
+    padding-bottom: 25%;
+    padding-left: 12%;
+    padding-top: 5%;
 }
 </style>
