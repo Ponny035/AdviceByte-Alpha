@@ -231,7 +231,7 @@ html {
 #app {
     color: #2c3e50;
     max-width: 400%;
-    font-family: Source Sans Pro, Helvetica, sans-serif;
+    font-family: 'Poppins', Source Sans Pro, Helvetica, sans-serif;
     text-align: center;
 }
 .slide-fade-enter-active {
