@@ -37,12 +37,12 @@ export default {
                 labels: [
                     'Algorithm',
                     'Data Structure',
+                    'Programming',
                     'Mathematic',
-                    'Coding',
-                    'Communication',
                     'Language',
-                    'Self-motivation',
-                    'Problem Solivg'
+                    'Communication',
+                    'Problem Solivg',
+                    'Self-motivation'
                 ],
                 datasets: [
                     {
