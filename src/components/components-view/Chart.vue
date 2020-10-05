@@ -2,7 +2,7 @@
     <div class="spiderChart">
         <canvas id="myChart" ref="myChart" width="400" height="400"></canvas>
 
-        <button @click="increment">Click me</button>
+        <button @click="increment" class="btn btn-success">Click me</button>
     </div>
 </template>
 
