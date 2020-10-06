@@ -4,11 +4,12 @@ import CenterContext from '../components/CenterContext.vue'
 import Mission from '../components/Mission.vue'
 import Stat from '../components/Stat.vue'
 import Dashboard from '../components/Dashboard.vue'
-import MissionBox from '../components/components-view/Mission-Box.vue'
+import getMission from '../components/components-view/getMission.vue'
 import Forum from '../components/components-view/Forum.vue'
 import Profile from '../components/components-view/Profile.vue'
 // import Week from '../components/Week.vue';
 import Charty from '../components/components-view/Chart.vue'
+import getForum from '../components/getForum.vue'
 
 const routes = [
     {
@@ -31,8 +32,13 @@ const routes = [
                 path: '',
                 component: Forum,
                 name: 'forum',
-                meta: {}
-            }
+                meta: {},
+            },
+            {
+                path: '',
+                component: getForum,
+                name: '1'
+            },
         ]
     },
     {
@@ -42,7 +48,7 @@ const routes = [
         children: [
             {
                 path: ':id',
-                component: MissionBox,
+                component: getMission,
                 name: 'algo',
                 meta: {}
             }

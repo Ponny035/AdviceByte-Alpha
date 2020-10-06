@@ -7,11 +7,21 @@
       <th scope="col">*Bookmark*</th>
     </tr>
   </thead>
-  <tbody>
-    <tr class="forum-space">
-      <th scope="row">type</th>
-      <td class="forum-font" colspan="2">The Social Network</td>
-      <td>icon</td>
+  <tbody class="">
+    <tr class="">
+      <th scope="row"></th>
+      <td class="font-test3 text-left" colspan="2">The Social Network</td>
+      <td></td>
+    </tr> 
+        <tr class="forum-space">
+      <th scope="row"></th>
+      <td class="font-test3 text-left" colspan="2">The Secret Rule of Modern Living AI</td>
+      <td></td>
+    </tr> 
+        <tr class="forum-space">
+      <th scope="row"></th>
+      <td class="font-test3 text-left" colspan="2">Thinking Like A Coder</td>
+      <td></td>
     </tr> 
   </tbody>
 </table>  
@@ -24,9 +34,12 @@ export default {
 </script>
 
 <style>
-/* .forum-space { 
-    margin-bottom: 50%;
+.font-test3 { 
+    font-family: Poppins;
+    color: #37437e;
+    font-size: 15px;
+    font-weight: bold;
 
-} */
+}
 
 </style>

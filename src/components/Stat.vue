@@ -15,14 +15,14 @@
                 </div>
             </div>
         </div>
-        <hr />
-        <h4 class="font-weight-bold text-left">Experience Graph</h4>
+        <!-- <hr /> -->
+        <!-- <h4 class="font-weight-bold text-left">Experience Graph</h4>
         <div class="row">
             <div class="empty-box">
                 ..Coming Soon..
             </div>
         </div>
-        <hr />
+        <hr /> -->
     </div>
 </template>
 

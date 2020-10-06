@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="body">
                                     <ul>
-                                        <li @click="viewHome">
+                                        <li @click="viewProfile">
                                             <img
                                                 src="./image/home.svg"
                                                 alt
@@ -116,8 +116,9 @@
                                     </th>
                                     <td
                                         class="text-left font-custom-list p-2 flex-fill bd-highlight"
+                                        @click="viewQuest"
                                     >
-                                        Example Mission With Something
+                                        The Secret Rules of Modern Living
                                         <p class="mission-detail">
                                             fake detail
                                         </p>
@@ -155,13 +156,13 @@ export default {
 </script>
 
 <style>
-@import 'https://fonts.google.com/specimen/Poppins?query=poppin';
 @import './styles/custom.min.css';
 @import './styles/custom.scss';
+@import './styles/custom.css';
 
 .type-mission {
     font-family: Poppins;
-    color: #ffaa00;
+    color: rgb(255, 170, 0);
     font-size: 12px;
     font-weight: bold;
 }
