@@ -1,16 +1,7 @@
 <template>
     <div class="profile">
         <!-- tree -->
-        <div class="tree">
-            <img
-                alt=""
-                class=""
-                src="https://i.imgur.com/eyJFtdT.png"
-            />
-        </div>
-        <br>
-        <br>
-        <br>
+        <Tree></Tree>
         <!-- award head -->
         <div class="award">
             <div class="container">
@@ -77,7 +68,12 @@
 </template>
 
 <script>
-export default {}
+import Tree from '../getTree'
+export default {
+    components: {
+        Tree
+    }
+}
 </script>
 
 <style>
