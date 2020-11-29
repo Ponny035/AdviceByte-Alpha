@@ -1,0 +1,83 @@
+Time
+  Experience ie field
+    0 Less than 1 year.
+    1 1-5 years.
+    2 5-10 years.
+    3 More than 10 years.
+    -1  Error
+
+Status
+  User current status
+    0 Null
+    1 Studying in Computer Science student or computer related field.
+    2 Working as Developer or in computer related field.
+    3 Instructors in computer science or related fields.
+    4 Other
+
+Type
+  User MBTI Personality Type
+    0 Null
+    1 INTJ
+    2 INTP
+    3 ENTJ
+    4 ENTP
+    5 INFJ
+    6 INFP
+    7 ENFJ
+    8 ENFP
+    9 ISTJ
+    10  ISFJ
+    11  ESTJ
+    12  ESFJ
+    13  ISTP
+    14  ISFP
+    15  ESTP
+    16  ESFP
+
+Algorithm
+  User's total algorithm score
+    00..100 Score
+
+DataStructure
+  User's total Data Structure score
+    00..100 Score
+
+Programming
+  User's total Programming score
+    00..100 Score
+
+Mathematic
+  User's total Mathematic score
+    00..100 Score
+
+Language
+  User's total Language score
+    00..100 Score
+
+Communication
+  User's total Communication score
+    00..100 Score
+
+ProblemSolving
+  User's total Problem Solving score
+    00..100 Score
+
+SelfMotivation
+  User's total Self Motivation score
+    00..100 Score
+
+Total
+  User's total skills score
+    00..500 Score
+
+StudyHardSkill
+  User's activity for study HardSkill
+
+TestHardSkill
+  User's activity for Test HardSkill
+
+StudySoftSkill
+  User's activity for study SoftSkill
+
+TestSoftSkill
+  User's activity for Test SoftSkill
