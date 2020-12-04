@@ -13,7 +13,12 @@
   "dependencies": {
     "bootstrap": "^4.5.2",
     "chart.js": "^2.9.3",
+    "connect-session-knex": "^2.0.0",
+    "cookie": "^0.4.1",
+    "cookie-session": "^1.4.0",
     "core-js": "^3.6.5",
+    "cors": "^2.8.5",
+    "mysql": "^2.18.1",
     "register-service-worker": "^1.7.1",
     "vue": "^3.0.0-0",
     "vue-chartjs": "^3.5.1",
