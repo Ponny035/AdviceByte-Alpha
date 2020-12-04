@@ -1,6 +1,9 @@
 <template>
+<!-- ไว้เรียก Mission แต่ละอันในแต่ละหมวด ถ้าเขาเข้า /algo ก็โชว์มิชชั่น algo
+ถ้าเขา /commu ก็โชว์ Mission commu -->
   <div class="MissionBox" name="stagebox">
     <br>
+    <!-- เริ่ม_กล่องโค้ดขาว -->
     <div class="shadow-sm mission-stagee bg-white justify-content-sm-center">
       <div class="container">
         <div class="row">
@@ -30,10 +33,12 @@
             </button>
           </div>
         </div>
+        <br>
+        <!-- จบกล่องโค้ดขาว -->
       </div>
     </div>
-    <!-- two -->
-        <div class="shadow-sm mission-stagee bg-white justify-content-sm-center">
+        <!-- เริ่ม_กล่องโค้ดเขียว -->
+    <div class="shadow-sm mission-stagee bg-green justify-content-sm-center">
       <div class="container">
         <div class="row">
           <!-- content mission stage -->
@@ -42,7 +47,7 @@
           <!-- mission name -->
           <td>
             <div class="col-6 text-left">
-            <p class="font-test1">The Social Network</p>
+            <p class="font-test1">The Secret Rule of Modern Living AI</p>
             <p class="font-test2">Example Mission With Something</p>
           </div>
           <div class="hastag-mission">
@@ -54,6 +59,7 @@
           <div class="col">
             <button
               type="button"
+              @click="viewForum"
               class="btn mission-button"
               data-toggle="button"
               aria-pressed="false"
@@ -61,37 +67,8 @@
             </button>
           </div>
         </div>
-      </div>
-    </div>
-    <!-- three -->
-        <div class="shadow-sm mission-stagee bg-white justify-content-sm-center">
-      <div class="container">
-        <div class="row">
-          <!-- content mission stage -->
-          <!-- star rate -->
-          <div class="col-3 font-test2">1 of 3</div>
-          <!-- mission name -->
-          <td>
-            <div class="col-6 text-left">
-            <p class="font-test1">Thinking Like A Coder</p>
-            <p class="font-test2">Example Mission With Something</p>
-          </div>
-          <div class="hastag-mission">
-              <!-- <div class="badge badge-info">#Communication</div>
-              <div class="badge badge-success">#Language</div> -->
-            </div>
-          </td>
-          <!-- button mission -->
-          <div class="col">
-            <button
-              type="button"
-              class="btn mission-button"
-              data-toggle="button"
-              aria-pressed="false"
-            >Start
-            </button>
-          </div>
-        </div>
+        <br>
+        <!-- จบกล่องโค้ดขาว -->
       </div>
     </div>
   </div>
@@ -108,6 +85,10 @@ export default {
 </script>
 
 <style>
+.bg-green {
+  background-color:#66ffa1;
+}
+
 .mission-button {
   font-family: Poppins;
   color: #ffffff;

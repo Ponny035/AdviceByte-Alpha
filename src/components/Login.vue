@@ -4,9 +4,7 @@
         <!-- content -->
         <div class="container">
             <div class="row">
-                <div class="col">
-                    
-                </div>
+                <div class="col"></div>
                 <div class="col">
                     <div class="text-center mb-4">
                         <img
@@ -17,62 +15,100 @@
                             Hello, Bibbudi
                         </h1>
                         <p>
-                            Level up your knowledge and get prepared for your career path.
-                            <a href="https://caniuse.com/#feat=css-placeholder-shown">
-                            Sign up!</a>
+                            Level up your knowledge and get prepared for your
+                            career path.
+                            <a
+                                href="https://caniuse.com/#feat=css-placeholder-shown"
+                            >
+                                Sign up!</a
+                            >
                         </p>
                     </div>
-                    <div class="form-label-group">
-                        <input
-                            type="email"
-                            id="inputEmail"
-                            class="form-control"
-                            placeholder="Email address"
-                            required=""
-                            autofocus=""
-                        />
-                        <label for="inputEmail"></label>
-                    </div>
-                    <div class="form-label-group">
-                        <input
-                            type="password"
-                            id="inputPassword"
-                            class="form-control"
-                            placeholder="Password"
-                            required=""
-                        />
-                        <label for="inputPassword"></label>
-                    </div>
-                    <div class="Box">
-                        <div class="">
-                            <div class="checkbox">
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        value="remember-me"
-                                    />
-                                    Remember me
-                                </label>
+                    <form
+                        @submit.prevent="checkForm"
+                        class="needs-validation"
+                        novalidate
+                    >
+                        <div class="form-label-group">
+                            <input
+                                type="email"
+                                id="inputEmail"
+                                class="form-control"
+                                placeholder="Email address"
+                                required=""
+                                autofocus=""
+                                v-model="username"
+                            />
+                            <label for="inputEmail"></label>
+                        </div>
+                        <div class="form-label-group">
+                            <input
+                                type="password"
+                                id="inputPassword"
+                                class="form-control"
+                                placeholder="Password"
+                                v-model="password"
+                                required=""
+                            />
+                            <label for="inputPassword"></label>
+                        </div>
+
+                        <div class="Box">
+                            <div class="">
+                                <div class="checkbox">
+                                    <label>
+                                        <input
+                                            type="checkbox"
+                                            value="remember-me"
+                                        />
+                                        Remember me
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <button
-                        class="btn btn-lg btn-success btn-block"
-                        type="submit"
-                    >
-                        <p class="font">Sign in</p>
-                    </button>
+                        <button
+                            button
+                            onclick=""
+                            class="btn btn-lg btn-success btn-block"
+                            type="submit"
+                        >
+                            <p class="font">Sign in</p>
+                        </button>
+                    </form>
                 </div>
-                <div class="col">
-                   
-                </div>
+                <div class="col"></div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-export default {}
+export default {
+    state: {
+        username: '',
+        password: ''
+    },
+    methods: {
+        checkForm() {
+            fetch('http://localhost:3000/user/login', {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: this.username,
+                    password: this.password
+                })
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data)
+                })
+            console.log()
+        }
+    }
+}
 </script>
 
 <style>
@@ -92,7 +128,7 @@ export default {}
 .container {
 }
 
-.btn-color { 
+.btn-color {
     background-color: blue;
 }
 </style>

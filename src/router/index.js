@@ -6,15 +6,17 @@ import Stat from '../components/Stat.vue'
 import Login from '../components/Login.vue'
 import Dashboard from '../components/Dashboard.vue'
 import getMission from '../components/components-view/getMission.vue'
-import Forum from '../components/components-view/Forum.vue'
+import getDashboard from '../components/components-view/getDashboard.vue'
 import Profile from '../components/components-view/Profile.vue'
 // import Week from '../components/Week.vue';
 import Charty from '../components/components-view/Chart.vue'
 import getForum from '../components/getForum.vue'
 import Layout from '../components/Layout.vue'
 import Register from '../components/Register.vue'
+import Response from '../components/Response.vue'
 
 const routes = [
+
     {
         path: '/login',
         component: Login,
@@ -29,6 +31,11 @@ const routes = [
         path: '/',
         component: Layout,
         children: [
+            {
+                path: '/hello',
+                component: Response,
+                name: ''
+            },
             {
                 path: '',
                 name: 'home'
@@ -47,8 +54,8 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        component: Forum,
-                        name: 'forum',
+                        component: getDashboard,
+                        name: 'getDashboard',
                         meta: {},
                     },
                     {

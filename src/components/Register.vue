@@ -21,6 +21,7 @@
             <div class="row">
                 <div class="text-md-left col-sm-8">
                     <h4 class="mb-3">Register</h4>
+                    <form class="needs-validation" novalidate>
                     <!-- full-name/last-name -->
                     <div class="row">
                         <div class="col-md-6 mb-3">
@@ -164,9 +165,6 @@
                             <option value="">MBTI</option>
                             <option>...</option>
                         </select>
-                        <!-- <div class="invalid-feedback">
-              Please provide a valid state.
-            </div> -->
                     </div>
                     <!-- ปุ่มส่งฟอร์ม -->
                     <br />
@@ -174,10 +172,13 @@
                         <button
                             class="btn btn-primary btn-lg btn-block"
                             type="submit"
+                            onclick=""
                         >
                             Get Start
                         </button>
+                        
                     </div>
+                    </form>
                 </div>
                 <!-- ฝั่งขวา -->
                 <div class="col-sm-4">col-sm-4</div>
@@ -187,6 +188,11 @@
 </template>
 
 <script>
+// import {register} from '../API/User';
+
+//get input
+// register(username,password)
+
 export default {}
 </script>
 
