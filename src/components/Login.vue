@@ -92,7 +92,7 @@ export default {
         checkForm() {
             fetch('http://localhost:3000/user/login', {
                 method: 'POST',
-                credentials: 'include',
+                credentials: 'same-origin',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -101,7 +101,7 @@ export default {
                     password: this.password
                 })
             })
-                .then((response) => response.json())
+                .then((response) => response.text())
                 .then((data) => {
                     console.log(data)
                 })
