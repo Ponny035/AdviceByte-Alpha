@@ -2,7 +2,7 @@
     <div class="spiderChart">
         <canvas id="myChart" ref="myChart" width="400" height="400"></canvas>
 
-        <button @click="increment">Click me</button>
+        <button @click="increment" class="btn btn-success">Click me</button>
     </div>
 </template>
 
@@ -47,8 +47,16 @@ export default {
                 datasets: [
                     {
                         label: 'Kritchagamol',
-                        backgroundColor: 'rgb(35, 50, 120, 0.5)',
-                        data: [40, 75, 75, 45, 85, 75, 65, 55]
+                        backgroundColor: [
+                            'rgb(35, 50, 120, 0.5)',
+                            'rgb(35, 50, 120, 0.5)',
+                            'rgb(35, 50, 120, 0.5)',
+                            'rgb(35, 50, 120, 0.5)',
+                            'rgb(255, 170, 0, 1)',
+                            'rgb(255, 170, 0, 1)',
+                            'rgb(255, 170, 0, 1)',
+                            'rgb(255, 170, 0, 1)'],
+                        data: [5, 40, 75, 45, 50, 75, 65, 55]
                     },
                     {
                         label: 'Base Line',
@@ -56,12 +64,13 @@ export default {
                         data: [47.29, 57.29, 70.52, 47.29, 71.67, 71.35, 69.38, 63.96]
                     }
                 ]
-            }
-        }
+            },
+            i: 5,
+        };
     },
     methods: {
         increment() {
-            this.i += 1
+            this.i += 5
 
             var options = {
                 responsive: false,
@@ -93,7 +102,15 @@ export default {
                     datasets: [
                         {
                             label: 'Kritchagamol',
-                            backgroundColor: 'rgb(35, 50, 120, 0.5)',
+                            backgroundColor: [
+                            'rgb(35, 50, 120, 0.5)',
+                            'rgb(35, 50, 120, 0.5)',
+                            'rgb(35, 50, 120, 0.5)',
+                            'rgb(35, 50, 120, 0.5)',
+                            'rgb(255, 170, 0, 1)',
+                            'rgb(255, 170, 0, 1)',
+                            'rgb(255, 170, 0, 1)',
+                            'rgb(255, 170, 0, 1)'],
                             data: this.chartData
                         },
                         {
@@ -110,7 +127,7 @@ export default {
     },
     computed: {
         chartData() {
-            return [80, 75, 75, 85, 85, 75, 65, 55]
+            return [this.i, 40, 75, 45, 50, 75, 65, 55]
         }
     }
 }

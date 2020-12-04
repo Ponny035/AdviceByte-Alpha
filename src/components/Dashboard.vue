@@ -36,6 +36,8 @@ export default {}
 
 .detail-forum {
     padding-left: 8%;
+    font-family: poppins;
+    font-size: 13px;
 }
 
 .cont-forum {

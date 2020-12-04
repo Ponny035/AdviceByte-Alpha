@@ -18,6 +18,7 @@
             <div class="content-bg bg-lightblue">
                 <div class="bg-blue shadow-sm p-3 mb rounded box-try">
                     <div class="row justify-content-md-center">
+                        <!-- หัวข้อ Categories -->
                         <div class="topic-font col-md-6">
                             Topic Mission Example
                         </div>
@@ -26,6 +27,7 @@
                 <div class="content-box-mission">
                     <!-- mission-stage -->
                     <router-view></router-view>
+                    
                 </div>
             </div>
         </div>
@@ -33,10 +35,12 @@
 </template>
 
 <script>
+
 export default {}
 </script>
 
-<style lang="css">
+<style>
+
 /* .mission {
 
 } */
@@ -60,42 +64,5 @@ export default {}
   margin-bottom: ;
 } */
 
-.hastag-mission {
-    margin-left: 2%;
-}
 
-.mission-stagee {
-    margin: 10px;
-    padding: 3%;
-    padding-left: 8%;
-    border-bottom-right-radius: 12px;
-    border-bottom-left-radius: 12px;
-    border-top-right-radius: 12px;
-    border-top-left-radius: 12px;
-}
-
-.font-mission {
-    font-family: Poppins;
-    color: #37437e;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.font-mission-datail {
-    font-weight: lighter;
-    font-family: Poppins;
-    font-size: 13px;
-    color: #575757a1;
-}
-
-.font-hastag {
-    font-weight: lighter;
-    font-family: Poppins;
-    font-size: 12px;
-    color: #e9e9e9;
-}
-.content-box-mission {
-    padding: 0.5rem;
-    padding-bottom: 4rem;
-}
 </style>
