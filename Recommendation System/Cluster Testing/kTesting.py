@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
 import sys
+import matplotlib
+matplotlib.use('TkAgg')
 
 connection = connectDB.mydb
 
