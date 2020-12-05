@@ -1,4 +1,5 @@
 import connectDB
+import sys
 
 def getUserCluster(userID):
     query = "SELECT `Study_Cluster_ID` FROM `User_Information`  WHERE `User_ID` = "+ str(userID)
@@ -12,8 +13,8 @@ def getCluster(clusterID):
     myresult = mycursor.fetchall()
     return myresult
 
-def getMaxActivity(userID):
-    query = "SELECT `User_ID`,`Learning_Style_ID`,`Count` FROM User_Study_History WHERE `User_ID` = "+ str(userID)
+def getMaxLearningStyle(userID):
+    query = "SELECT `User_ID`,`Learning_Style_ID`,`Count` FROM User_Study_History WHERE `User_ID` = "+ str(userID)+ " ORDER BY `Count`  DESC"
     mycursor.execute(query)
     myresult = mycursor.fetchall()
     if myresult:
@@ -21,14 +22,23 @@ def getMaxActivity(userID):
     else:
         return 0
 
-def getActivity(category):
-    query = "SELECT `Activity_ID` FROM `Activity` WHERE `Categories_ID` = "+ str(category)
+def getActivity(learningStyle):
+    query = "SELECT `Activity_ID` FROM `Activity` WHERE `Categories_ID` = " + str(learningStyle)
     mycursor.execute(query)
     myresult = mycursor.fetchall()
     if myresult:
         return myresult
     else:
         return 0
+
+def getActivityBySkills(learningStyle, skills):
+    for style in learningStyle:
+        query = "SELECT c1.`Categories_ID` FROM `Categories` AS c1,`Categories_Skills` AS c2,`Categories_Style`AS c3 WHERE c1.`Categories_ID` = c2.`Categories_ID` AND c2.`Categories_ID` = c3.`Categories_ID` AND c1.`Categories_ID` = c3.`Categories_ID` AND `Skill_ID` = " + str(skill) + " AND `Learning_Style_ID` = " + str(style[0])
+        mycursor.execute(query)
+        myresult = mycursor.fetchall()
+        if myresult:
+            return getActivity(myresult[0][0])
+    return getActivity(learningStyle[0][0])
 
 def getRating(userID, activityID):
     query = "SELECT `Interest_Score` FROM `User_Interest_Activity_List` WHERE `User_ID` = "+ str(userID) +" AND `Activity_ID` = "+ str(activityID)
@@ -42,9 +52,11 @@ def getRating(userID, activityID):
 def sortingElement(e):
   return e[1]
 
-inputUser = 7
+# #inputUser overWrite
+# inputUser = 7
+inputUser = sys.argv[1]
 
-activitiesCount = {}
+DicLearningStyle = {}
 
 connection = connectDB.mydb
 mycursor = connection.cursor()
@@ -54,34 +66,36 @@ userCluster = getUserCluster(inputUser)
 cluster = getCluster(userCluster)
 
 for i in cluster:
-    activities = getMaxActivity(i[0])
-    for j in activities:
-        activity = j[1]
-        if activity in activitiesCount:
-            activitiesCount[activity].append(j[2])
+    learningStyle = getMaxLearningStyle(i[0])
+    for j in learningStyle:
+        style = j[1]
+        if style in DicLearningStyle:
+            DicLearningStyle[style].append(j[2])
         else:
-            activitiesCount[activity] = []
-            activitiesCount[activity].append(j[2])
+            DicLearningStyle[style] = []
+            DicLearningStyle[style].append(j[2])
 
-maxType = 0
-maxCount = 0
+learningStyleCount = []
 
-for key in activitiesCount.keys():
-    count = sum(activitiesCount[key])
-    if count > maxCount:
-        maxType = key
-        maxCount = count
+for key in DicLearningStyle.keys():
+    count = sum(DicLearningStyle[key])
+    learningStyleCount.append([key,count])
 
-#maxType overWrite
-maxType = 1
+learningStyleCount.sort(reverse=True,key=sortingElement)
+# #maxType overWrite
+# maxType = 1
+maxType = learningStyleCount[0][0]
 
-recommendActivity = getActivity(maxType)
+if(len(sys.argv) != 3):
+    recommendActivity = getActivity(maxType)
+else:
+    skill = sys.argv[2]
+    recommendActivity = getActivityBySkills(learningStyleCount,skill)
 
 rank = []
 
 for i in recommendActivity:
     rating = getRating(inputUser,i[0])
-    print(i[0],rating)
     rank.append([i[0],rating])
 
 rank.sort(reverse=True,key=sortingElement)
