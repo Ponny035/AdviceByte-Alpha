@@ -2,6 +2,9 @@ import connectDB
 import pandas as pd
 import numpy as np
 
+connection = connectDB.mydb
+mycursor = connection.cursor()
+
 Categories = {
     "Coding":1,
     "Hackathon":2,
@@ -38,16 +41,14 @@ def CategoriesFinder(activity):
     return category
 
 def addActivity(Activity_Name, Categories_ID):
-    connection = connectDB.mydb
-    mycursor = connection.cursor()
     query = "INSERT INTO `Activity` (`Activity_Name`, `Activity_Description`, `Categories_ID`, `Create_At`, `Update_At`, `Admin_ID`) VALUES ('" + str(Activity_Name) + "', '-', '" + str(Categories_ID) + "', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '3')"
     mycursor.execute(query)
     connection.commit()
-
 
 data = pd.read_csv("../Data/ActivityData.csv", encoding='utf-8')
 
 data_list = data.values.tolist()
 
 for row in data_list:
+    print(row[1],row[0])
     addActivity(row[1],CategoriesFinder(row[0]))
