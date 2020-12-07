@@ -19,7 +19,7 @@ const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.29 276.
     .cls-5{fill:#93cb2f;}
     .cls-6{fill:#81b329;}
     .cls-7{fill:#709c24;}
-    .cls-8{fill:$#8abf2c;}
+    .cls-8{fill:#8abf2c;}
     .cls-9{fill:#8abf2c;}
     .cls-10{fill:#754c29;}
     .cls-11{fill:#D60A00;}

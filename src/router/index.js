@@ -38,8 +38,8 @@ const routes = [
             },
             {
                 path: '',
-                name: 'home'
-                // redirect: { name: 'main-view'},
+                name: 'home',
+                redirect: { name: 'profile'},
             },
             {
                 path: '/chart',
