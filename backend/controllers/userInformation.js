@@ -18,10 +18,6 @@ router
 
         if (!User_ID) return res.send('Username of Password is incorrect')
 
-        console.log(User_ID)
-
-        req.session.userId = User_ID
-
         res.send(User_ID)
     })
     .post('/create', async (req, res) => {
@@ -32,7 +28,7 @@ router
         res.send(`${username} Added`)
     })
     .post('/information', async (req, res) => {
-        let userId = req.session.userId
+        const userId = req.body.userId
 
         if (!userId) return res.status(403).send('Unanthorized')
 
@@ -45,13 +41,9 @@ router
 
         res.send(avginformation)
     })
-    .post('/logout', async (req, res) => {
-        req.session.userId = undefined
 
-        res.send('Logout')
-    })
     .post('/finishActivity', async (req, res) => {
-        let userId = req.session.userId
+        const userId = req.body.userId
         
         if (!userId) return res.status(403).send('Unanthorized')
 

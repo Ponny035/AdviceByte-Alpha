@@ -6,7 +6,6 @@ const express = require('express'),
 
 router.post('/information', async (req, res) => {
     let { activityId } = req.body
-    console.log(activityId)
 
     let information = await activityInformation.getActivitiesRecommendation(
         activityId
@@ -18,7 +17,6 @@ router.post('/information', async (req, res) => {
 router.post('/recommendation', async (req, res) => {
     const userId = req.body.userId
     const skillId = req.body.skillId
-    console.log(userId)
     if (!userId) return res.status(403).send('Unanthorized')
 
     const pythonShellOptions = {
