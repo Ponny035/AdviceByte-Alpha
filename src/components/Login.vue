@@ -68,7 +68,7 @@
                         </div>
                         <button
                             button
-                            onclick=""
+                       
                             class="btn btn-lg btn-success btn-block"
                             type="submit"
                         >
@@ -83,29 +83,38 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     state: {
         username: '',
         password: ''
     },
     methods: {
-        checkForm() {
-            fetch('http://localhost:3000/user/login', {
-                method: 'POST',
-                credentials: 'same-origin',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
+        async checkForm() {
+            try {
+                // const data = await fetch('http://localhost:3000/user/login', {
+                // method: 'POST',
+                // credentials: 'same-origin',
+                // headers: {
+                //     'Content-Type': 'application/json'
+                // },
+                // body: JSON.stringify({
+                //     username: this.username,
+                //     password: this.password
+                // })
+                
+                const data = await axios.post('http://localhost:3000/user/login',
+                {
                     username: this.username,
                     password: this.password
-                })
-            })
-                .then((response) => response.text())
-                .then((data) => {
-                    console.log(data)
-                })
-            console.log()
+                }
+                )
+                console.log(data)
+                localStorage.setItem('userId', data.data.User_ID)
+            } catch (error) {
+                console.log(error)
+            }
+            
         }
     }
 }

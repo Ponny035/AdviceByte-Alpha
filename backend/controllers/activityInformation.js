@@ -16,14 +16,16 @@ router.post('/information', async (req, res) => {
 })
 
 router.post('/recommendation', async (req, res) => {
-    const userId = req.session.userId
+    const userId = req.body.userId
     const skillId = req.body.skillId
+    console.log(userId)
+    if (!userId) return res.status(403).send('Unanthorized')
 
     const pythonShellOptions = {
         args: [userId, skillId],
         scriptPath: 'Recommendation System/Cluster'
     }
-
+    console.log("check")
     PythonShell.run(
         'recommender.py',
         pythonShellOptions,
@@ -35,6 +37,7 @@ router.post('/recommendation', async (req, res) => {
             res.send(activities)
         }
     )
+    console.log("check2")
 })
 
 module.exports = router

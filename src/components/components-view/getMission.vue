@@ -3,40 +3,44 @@
 ถ้าเขา /commu ก็โชว์ Mission commu -->
   <div class="MissionBox" name="stagebox">
     <br>
-    <!-- เริ่ม_กล่องโค้ดขาว -->
-    <div class="shadow-sm mission-stagee bg-white justify-content-sm-center">
-      <div class="container">
-        <div class="row">
-          <!-- content mission stage -->
-          <!-- star rate -->
-          <div class="col-3 font-test2"></div>
-          <!-- mission name -->
-          <td>
-            <div class="col-9 text-left">
-            <p class="font-test1">The Secret Rule of Modern Living AI</p>
-            <p class="font-test2">Example Mission With Something</p>
-          </div>
-          <div class="hastag-mission">
-              <!-- <div class="badge badge-info">#Communication</div>
-              <div class="badge badge-success">#Language</div> -->
+        <template v-for="(item,i) in data" :key="i">
+                <!-- เริ่ม_กล่องโค้ดขาว -->
+          <div class="shadow-sm mission-stagee bg-white justify-content-sm-center">
+            <div class="container">
+              <div class="row">
+                <!-- content mission stage -->
+                <!-- star rate -->
+                <div class="col-3 font-test2">{{i}}</div>
+                <!-- mission name -->
+
+                <td>
+                  <div class="col-9 text-left">
+                  <p class="font-test1">{{item.Activity_Name}}</p>
+                  <p class="font-test2">{{item.Activity_Description}}</p>
+                </div>
+                <div class="hastag-mission">
+                    <!-- <div class="badge badge-info">#Communication</div>
+                    <div class="badge badge-success">#Language</div> -->
+                  </div>
+                </td>
+                <!-- button mission -->
+                <div class="col">
+                  <button
+                    type="button"
+                    @click="viewForum"
+                    class="btn mission-button"
+                    data-toggle="button"
+                    aria-pressed="false"
+                  >Start
+                  </button>
+                </div>
+              </div>
+              <br>
+              <!-- จบกล่องโค้ดขาว -->
             </div>
-          </td>
-          <!-- button mission -->
-          <div class="col">
-            <button
-              type="button"
-              @click="viewForum"
-              class="btn mission-button"
-              data-toggle="button"
-              aria-pressed="false"
-            >Start
-            </button>
           </div>
-        </div>
-        <br>
-        <!-- จบกล่องโค้ดขาว -->
-      </div>
-    </div>
+        </template>
+
         <!-- เริ่ม_กล่องโค้ดเขียว -->
     <div class="shadow-sm mission-stagee bg-green justify-content-sm-center">
       <div class="container">
@@ -75,10 +79,55 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
+    data() {
+        return {
+            data:[]
+        }
+    },
+    mounted() {
+      console.log(this.$route.params.id)
+      this.mission()
+    },
     methods: {
-        viewForum() {
-            this.$router.push({ name: 'forum' })
+      viewForum() {
+        this.$router.push({ name: 'forum' })
+        },
+        async mission() {
+          console.log("TEST2")
+            try {
+                // const data = await fetch(
+                //   'http://localhost:3000/activity/recommendation', 
+                //   {
+                //     method: 'POST',
+                //     credentials: 'same-origin',
+                //     headers: {
+                //         'Content-Type': 'application/json'
+                //     },
+                //     body: JSON.stringify({
+                //         skillId: 3,
+                //     })
+                //   }
+                // )
+              const response = await axios.post('http://localhost:3000/activity/recommendation',
+              {
+                userId:localStorage.userId ,
+                skillId: this.$route.params.id
+              })
+              console.log(response)
+              const res = response.data
+              for (const item in res) {
+                console.log(item)
+                this.data.push(res[item])
+              }
+              // this.data = data.data
+              console.log(this.data)
+                
+            } catch (error) {
+                console.log(error)
+            }
+            
         }
     }
 }

@@ -14,13 +14,15 @@ router
     .post('/login', async (req, res) => {
         let { username, password } = req.body
 
-        let { User_ID } = await userInformation.getUserID(username, password)
+        let User_ID = await userInformation.getUserID(username, password)
 
         if (!User_ID) return res.send('Username of Password is incorrect')
 
+        console.log(User_ID)
+
         req.session.userId = User_ID
 
-        res.send('Successfully Login')
+        res.send(User_ID)
     })
     .post('/create', async (req, res) => {
         let { username, password } = req.body

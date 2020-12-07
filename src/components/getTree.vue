@@ -176,7 +176,7 @@ export default {
 }
 
 const dataUrl = svgToDataURL(svgStr)
-console.log(dataUrl)
+// console.log(dataUrl)
 
 </script>
 
