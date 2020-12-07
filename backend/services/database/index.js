@@ -1,7 +1,8 @@
 const connection = require('./connection')
-const { userInformation } = require('./table')
+const { userInformation, activityInformation } = require('./table')
 
 module.exports = {
     connection,
-    userInformation
+    userInformation,
+    activityInformation
 }

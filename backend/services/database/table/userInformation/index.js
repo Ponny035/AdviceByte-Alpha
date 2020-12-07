@@ -60,9 +60,30 @@ const getInformation = async userId => {
     return score
 }
 
+const getAVGInformation = async userId => {
+    const score = await table('User_Information')
+        .select([
+            'Algorithm_Score',
+            'Data_Structure_Score',
+            'Programming_Score',
+            'Mathematic_Score',
+            'Language_Score',
+            'Communication_Score',
+            'Self_Motivation_Score',
+            'Problem_Solving_Score'
+        ])
+        .where({
+            User_ID: 0
+        })
+        .first()
+
+    return score
+}
+
 module.exports = {
     isUserExisted,
     getUserID,
     addNewUser,
-    getInformation
+    getInformation,
+    getAVGInformation
 }
