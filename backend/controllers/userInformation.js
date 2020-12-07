@@ -14,11 +14,11 @@ router
     .post('/login', async (req, res) => {
         let { username, password } = req.body
 
-        let userId = await userInformation.getUserID(username, password)
+        let { User_ID } = await userInformation.getUserID(username, password)
 
-        if (!userId) return res.send('Username of Password is incorrect')
+        if (!User_ID) return res.send('Username of Password is incorrect')
 
-        req.session.userId = userId.User_ID
+        req.session.userId = User_ID
 
         res.send('Successfully Login')
     })
@@ -37,6 +37,11 @@ router
         let information = await userInformation.getInformation(userId)
 
         res.send(information)
+    })
+    .post('/avginformation', async (req, res) => {
+        let avginformation = await userInformation.getAVGInformation()
+
+        res.send(avginformation)
     })
     .post('/logout', async (req, res) => {
         req.session.userId = undefined

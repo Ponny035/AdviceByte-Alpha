@@ -5,7 +5,7 @@ from sklearn.cluster import KMeans
 from scipy.spatial import distance
 
 def getUserData():
-    query = "SELECT `User_ID`,`MBTI_ID`,`Learning_Style_ID`,`Algorithm_Score`,`Data_Structure_Score`,`Programming_Score`,`Mathematic_Score`,`Language_Score`,`Communication_Score`,`Problem_Solving_Score`,`Self_Motivation_Score` FROM `User_Information`"
+    query = "SELECT `User_ID`,`MBTI_ID`,`Learning_Style_ID`,`Algorithm_Score`,`Data_Structure_Score`,`Programming_Score`,`Mathematic_Score`,`Language_Score`,`Communication_Score`,`Problem_Solving_Score`,`Self_Motivation_Score` FROM `User_Information` WHERE `User_ID` != 0"
     mycursor.execute(query)
     myresult = mycursor.fetchall()
     return myresult
