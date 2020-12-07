@@ -54,6 +54,7 @@ router
     })
     router.post('/tree', async (req, res) => {
         const userId = req.body.userId
+        console.log(userId)
         if (!userId) return res.status(403).send('Unanthorized')
     
         const pythonShellOptions = {

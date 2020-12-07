@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 const svgToDataURL = require('svg-to-dataurl');
 const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.29 276.22"><defs><style>
     .cls-1{isolation:isolate;}
@@ -17,7 +19,7 @@ const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.29 276.
     .cls-5{fill:#93cb2f;}
     .cls-6{fill:#81b329;}
     .cls-7{fill:#709c24;}
-    .cls-8{fill:#8abf2c;}
+    .cls-8{fill:$#8abf2c;}
     .cls-9{fill:#8abf2c;}
     .cls-10{fill:#754c29;}
     .cls-11{fill:#D60A00;}
@@ -78,27 +80,23 @@ const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.29 276.
 
 
 export default {
+    
+    async created(){
+    try {
+    console.log(localStorage.userId)
 
-    state: {
-      activityCount:'',
-
+        const response = await axios.post('http://localhost:3000/user/tree',
+        {
+            userId:localStorage.userId
+            // skillId: this.$route.params.id
+        })
+    console.log(response)
+    } catch (error) {
+        console.log(error)
+    }
     },
-    methods: {
-        checkForm() {
-            fetch('http://localhost:3000/user/finishActivity', {
-                method: 'POST',
-                credentials: 'same-origin',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-                .then((response) => response.text())
-                .then((data) => {
-                    this.state.activityCount = data;
-                })
-            console.log()
-        }
-    },
+    
+   
 
     data() {
         return { 
