@@ -34,9 +34,7 @@ router
 
         if (!userId) return res.status(403).send('Unanthorized')
 
-        let information = await userInformation.getInformation(
-            req.session.userId
-        )
+        let information = await userInformation.getInformation(userId)
 
         res.send(information)
     })
@@ -50,5 +48,15 @@ router
 
         res.send('Logout')
     })
+    .post('/finishActivity', async (req, res) => {
+        let userId = req.session.userId
+        
+        if (!userId) return res.status(403).send('Unanthorized')
+
+        let activityCount = await userInformation.getFinishActivity(userId)
+
+        res.send(activityCount+"")
+    })
 
 module.exports = router
+
