@@ -50,8 +50,6 @@ router
 
         let activityCount = await userInformation.getFinishActivity(userId)
 
-        console.log(activityCount)
-
         res.send(activityCount+"")
     })
 

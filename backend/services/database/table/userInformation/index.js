@@ -63,7 +63,6 @@ const getInformation = async userId => {
 const getFinishActivity = async userId => {
     const query = "SELECT COUNT(`User_ID`) AS count FROM `User_Activity_Status_History` WHERE (CURRENT_DATE - DATE(`Update_At`)) < 30 AND `Status_ID` = 3 AND `User_ID` = " + userId + " GROUP BY `User_ID`"
     const result = await table.schema.raw(query)
-    console.log(typeof result[0][0]['count'])
     const count = result[0][0]['count']
     return count
 }
