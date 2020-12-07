@@ -87,12 +87,26 @@ const getAVGInformation = async userId => {
     return score
 }
 
+const getFirstName = async userId => {
+    const name = await table('User_Information')
+        .select([
+            'First_Name'
+        ])
+        .where({
+            User_ID: userId
+        })
+        .first()
+
+    return name
+}
+
 module.exports = {
     isUserExisted,
     getUserID,
     addNewUser,
     getInformation,
     getFinishActivity,
-    getAVGInformation
+    getAVGInformation,
+    getFirstName
 }
 

@@ -68,6 +68,23 @@ router
             }
         )
     })
+    .post('/firstName', async (req, res) => {
+        const userId = req.body.userId
+
+        if (!userId) return res.status(403).send('Unanthorized')
+
+        let name = await userInformation.getFirstName(userId)
+
+        res.send(name)
+    })
+
+    .post('/AVGName', async (req, res) => {
+        const userId = 0
+
+        let name = await userInformation.getFirstName(userId)
+
+        res.send(name)
+    })
 
 module.exports = router
 

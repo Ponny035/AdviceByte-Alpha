@@ -2,6 +2,17 @@ import connectDB
 import random
 import sys
 
+skill = {
+    1:"Algorithm",
+    2:"Data Structure",
+    3:"Coding",
+    4:"Mathematic",
+    5:"Language",
+    6:"Communication",
+    7:"Problem Solving",
+    8:"Self Motivation"
+    }
+
 def getActivityCount(userID):
     query = "SELECT COUNT(`User_ID`) AS count FROM `User_Activity_Status_History` WHERE (CURRENT_DATE - DATE(`Update_At`)) < 30 AND `Status_ID` = 3 AND `User_ID` = " + str(userID) + " GROUP BY `User_ID`"
     mycursor.execute(query)
@@ -103,6 +114,12 @@ for i in range(totalLeaf):
 
 random.shuffle(leafColor)
 
+skillLabel = {}
+
+skillLabel[skill[learningStyleCount[0][0]]] = mapColor(learningStyleCount[0][0])[1]
+skillLabel[skill[learningStyleCount[1][0]]] = mapColor(learningStyleCount[1][0])[1]
+skillLabel[skill[learningStyleCount[2][0]]] = mapColor(learningStyleCount[2][0])[1]
+
 skillColor = []
 skillPos = []
 offset = 13
@@ -114,5 +131,7 @@ for leaf in leafColor:
     skillColor.append(color[1])
     skillPos.append(offset+1)
     offset = offset + 2
+
+print(skillLabel)
 print(skillColor)
 print(skillPos)
