@@ -18,7 +18,7 @@ router
 
         if (!userId) return res.send('Username of Password is incorrect')
 
-        req.session.userId = userId
+        req.session.userId = userId.User_ID
 
         res.send('Successfully Login')
     })
@@ -34,9 +34,7 @@ router
 
         if (!userId) return res.status(403).send('Unanthorized')
 
-        let information = await userInformation.getInformation(
-            req.session.userId
-        )
+        let information = await userInformation.getInformation(userId)
 
         res.send(information)
     })
@@ -45,5 +43,17 @@ router
 
         res.send('Logout')
     })
+    .post('/finishActivity', async (req, res) => {
+        let userId = req.session.userId
+        
+        if (!userId) return res.status(403).send('Unanthorized')
+
+        let activityCount = await userInformation.getFinishActivity(userId)
+
+        console.log(activityCount)
+
+        res.send(activityCount+"")
+    })
 
 module.exports = router
+
