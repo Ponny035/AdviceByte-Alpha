@@ -9,10 +9,10 @@
         <div class="row">
           <!-- content mission stage -->
           <!-- star rate -->
-          <div class="col-3 font-test2">1 of 3</div>
+          <div class="col-3 font-test2"></div>
           <!-- mission name -->
           <td>
-            <div class="col-6 text-left">
+            <div class="col-9 text-left">
             <p class="font-test1">The Secret Rule of Modern Living AI</p>
             <p class="font-test2">Example Mission With Something</p>
           </div>
@@ -43,10 +43,10 @@
         <div class="row">
           <!-- content mission stage -->
           <!-- star rate -->
-          <div class="col-3 font-test2">1 of 3</div>
+          <div class="col-3 font-test2"></div>
           <!-- mission name -->
           <td>
-            <div class="col-6 text-left">
+            <div class="col-9 text-left">
             <p class="font-test1">The Secret Rule of Modern Living AI</p>
             <p class="font-test2">Example Mission With Something</p>
           </div>
@@ -86,17 +86,15 @@ export default {
 
 <style>
 .bg-green {
-  background-color:#66ffa1;
+  background-color:#e7ffcd;
 }
 
 .mission-button {
   font-family: Poppins;
-  color: #ffffff;
   font-size: 14px;
   font-weight: bold;
   margin-top: 0%;
   border-radius: 12px;
-  background-color: #37437e;
 }
 
 .hastag-mission {

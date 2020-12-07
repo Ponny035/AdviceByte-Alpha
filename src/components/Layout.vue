@@ -34,7 +34,7 @@
                                             />
                                             <br />Home
                                         </li>
-                                        <li to="/mission">
+                                        <li @click="viewMission">
                                             <img
                                                 src="../image/list.svg"
                                                 alt

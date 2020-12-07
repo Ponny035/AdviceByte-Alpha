@@ -3,6 +3,21 @@
         <!-- tree -->
         <Tree></Tree>
         <!-- award head -->
+        <div class="container">
+            <div class="colorTag">
+            <div class="row">
+                <div class="col-6 col-md-4">
+                <svg class="bd-placeholder-img mr-2 rounded" width="15" height="15" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"></rect><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+                </div>
+                <div class="col-6 col-md-4">
+                <svg class="bd-placeholder-img mr-2 rounded" width="15" height="15" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"></rect><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+                </div>
+                 <div class="col-6 col-md-4">
+                <svg class="bd-placeholder-img mr-2 rounded" width="15" height="15" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"></rect><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+                </div>
+            </div>
+            </div>
+        </div>
         <div class="award">
             <div class="container">
                 <h4 class="font-weight-bold text-left">Awards</h4>
@@ -77,6 +92,12 @@ export default {
 </script>
 
 <style>
+.colorTag {
+    padding-bottom: 5%;
+
+
+}
+
 .profile {
     margin-left: 5%;
 }

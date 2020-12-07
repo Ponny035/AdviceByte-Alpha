@@ -1,6 +1,6 @@
 <template>
     <div class="mission">
-        <div class="progress">
+        <!-- <div class="progress">
             <div
                 class="progress-bar"
                 role="progressbar"
@@ -11,9 +11,8 @@
             >
                 Test Progress Bar (50%)
             </div>
-        </div>
+        </div> -->
         <br />
-        <!-- หมุนตอนโหลด -->
         <div class="container p-2 bd-highlight">
             <div class="content-bg bg-lightblue">
                 <div class="bg-blue shadow-sm p-3 mb rounded box-try">
@@ -27,7 +26,26 @@
                 <div class="content-box-mission">
                     <!-- mission-stage -->
                     <router-view></router-view>
+                </div>
+                <div class="catagory">
+                    <div class="container">
+                    <div calss="row">
+                        <button type="button" class="button btn btn-light">Algorithm</button>
+                        <button type="button" class="button btn btn-light">Data Structure</button>
+                        <button type="button" class="button btn btn-light">Coding</button>
+                    </div>
+                    <div calss="row">
+                        <button type="button" class="button btn btn-light">Mathematic</button>
+                        <button type="button" class="button btn btn-light">Communicate</button>
+                        <button type="button" class="button btn btn-light">Laguage</button>
+                    </div>
+                    <div calss="row">
+                        <button type="button" class="button btn btn-light">Self-Motivation</button>
+                        <button type="button" class="button btn btn-light">Problem Solving</button>
+                        
+                    </div>
                     
+                </div>
                 </div>
             </div>
         </div>
@@ -44,6 +62,21 @@ export default {}
 /* .mission {
 
 } */
+.btn-catagory { 
+    background-color: #5f6b93;
+}
+
+.catagory {
+    padding-bottom: 10%
+}
+
+.button { 
+    width: 150px;
+    height: 150px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
 
 .topic-font {
     padding: 0.25rem;
