@@ -40,6 +40,11 @@ router
 
         res.send(information)
     })
+    .post('/avginformation', async (req, res) => {
+        let avginformation = await userInformation.getAVGInformation()
+
+        res.send(avginformation)
+    })
     .post('/logout', async (req, res) => {
         req.session.userId = undefined
 
