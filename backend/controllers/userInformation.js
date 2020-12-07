@@ -1,4 +1,5 @@
 const { userInformation } = require('../services/database')
+const { PythonShell } = require('python-shell')
 
 const express = require('express'),
     router = express.Router()
@@ -50,6 +51,22 @@ router
         let activityCount = await userInformation.getFinishActivity(userId)
 
         res.send(activityCount+"")
+    })
+    router.post('/tree', async (req, res) => {
+        const userId = req.body.userId
+        if (!userId) return res.status(403).send('Unanthorized')
+    
+        const pythonShellOptions = {
+            args: [userId],
+            scriptPath: 'backend'
+        }
+        PythonShell.run(
+            'leafCalculation.py',
+            pythonShellOptions,
+            async (err, results) => {
+                res.send(results)
+            }
+        )
     })
 
 module.exports = router

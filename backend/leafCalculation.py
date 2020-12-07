@@ -1,5 +1,6 @@
 import connectDB
 import random
+import sys
 
 def getActivityCount(userID):
     query = "SELECT COUNT(`User_ID`) AS count FROM `User_Activity_Status_History` WHERE (CURRENT_DATE - DATE(`Update_At`)) < 30 AND `Status_ID` = 3 AND `User_ID` = " + str(userID) + " GROUP BY `User_ID`"
@@ -36,10 +37,25 @@ def getTotalLeaf(activityCount):
     else:
         return 18
 
+def mapColor(skill):
+    switcher = {
+        1: ["#4b596b","#8a94a3"],
+        2: ["#a695c1","#63628c"],
+        3: ["#be231f","#e14541"],
+        4: ["#f68711","#f76e10"],
+        5: ["#89c9b9","#0c6a58"],
+        6: ["#7dac28","#8fc430"],
+        7: ["#d7c388","#dab073"],
+        8: ["#f68dab","#f57c95"],
+    }
+    return switcher.get(skill, -1)
+
 connection = connectDB.mydb
 mycursor = connection.cursor()
 
-userID = 3
+# #inputUser overWrite
+# userID = 7
+userID = sys.argv[1]
 
 totalLeaf = getTotalLeaf(getActivityCount(userID))
 
@@ -86,4 +102,17 @@ for i in range(totalLeaf):
         leafColor.append(learningStyleCount[2][1])
 
 random.shuffle(leafColor)
-print(leafColor)
+
+skillColor = []
+skillPos = []
+offset = 13
+
+for leaf in leafColor:
+    color = mapColor(leaf)
+    skillColor.append(color[0])
+    skillPos.append(offset)
+    skillColor.append(color[1])
+    skillPos.append(offset+1)
+    offset = offset + 2
+print(skillColor)
+print(skillPos)
