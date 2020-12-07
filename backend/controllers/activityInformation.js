@@ -23,7 +23,6 @@ router.post('/recommendation', async (req, res) => {
         args: [userId, skillId],
         scriptPath: 'Recommendation System/Cluster'
     }
-    console.log("check")
     PythonShell.run(
         'recommender.py',
         pythonShellOptions,
