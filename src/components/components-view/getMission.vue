@@ -95,7 +95,7 @@ export default {
         this.$router.push({ name: 'forum' })
         },
         async mission() {
-          console.log("TEST2")
+        console.log("TEST2")
             try {
                 // const data = await fetch(
                 //   'http://localhost:3000/activity/recommendation', 
