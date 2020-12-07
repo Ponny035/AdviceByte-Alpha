@@ -30,18 +30,18 @@
                 <div class="catagory">
                     <div class="container">
                     <div calss="row">
-                        <button type="button" class="button btn btn-light">Algorithm</button>
-                        <button type="button" class="button btn btn-light">Data Structure</button>
-                        <button type="button" class="button btn btn-light">Coding</button>
+                        <button @click="path(1)" type="button" class="button btn btn-light">Algorithm</button>
+                        <button @click="path(2)" type="button" class="button btn btn-light">Data Structure</button>
+                        <button @click="path(3)" type="button" class="button btn btn-light">Coding</button>
                     </div>
                     <div calss="row">
-                        <button type="button" class="button btn btn-light">Mathematic</button>
-                        <button type="button" class="button btn btn-light">Communicate</button>
-                        <button type="button" class="button btn btn-light">Laguage</button>
+                        <button @click="path(4)" type="button" class="button btn btn-light">Mathematic</button>
+                        <button @click="path(6)" type="button" class="button btn btn-light">Communicate</button>
+                        <button @click="path(5)" type="button" class="button btn btn-light">Laguage</button>
                     </div>
                     <div calss="row">
-                        <button type="button" class="button btn btn-light">Self-Motivation</button>
-                        <button type="button" class="button btn btn-light">Problem Solving</button>
+                        <button @click="path(8)" type="button" class="button btn btn-light">Self-Motivation</button>
+                        <button @click="path(7)" type="button" class="button btn btn-light">Problem Solving</button>
                         
                     </div>
                     
@@ -54,7 +54,13 @@
 
 <script>
 
-export default {}
+export default {
+     methods: {
+         path(n){
+             this.$router.push({path: `/mission/${n}`});
+         }
+     }
+}
 </script>
 
 <style>
