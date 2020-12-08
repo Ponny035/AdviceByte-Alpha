@@ -106,11 +106,11 @@ proportionThree = totalLeaf - proportionOne - proportionTwo
 for i in range(totalLeaf):
     leafColor =[]
     for j in range(proportionOne):
-        leafColor.append(learningStyleCount[0][1])
+        leafColor.append(learningStyleCount[0][0])
     for j in range(proportionTwo):
-        leafColor.append(learningStyleCount[1][1])
+        leafColor.append(learningStyleCount[1][0])
     for j in range(proportionThree):
-        leafColor.append(learningStyleCount[2][1])
+        leafColor.append(learningStyleCount[2][0])
 
 random.shuffle(leafColor)
 
