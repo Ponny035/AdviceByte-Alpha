@@ -2,7 +2,7 @@
     <div class="spiderChart">
         <canvas id="myChart" ref="myChart" width="400" height="400"></canvas>
 
-        <button @click="increment" class="btn btn-success">Click me</button>
+        <!-- <button @click="increment" class="btn btn-success">Click me</button> -->
     </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
             this.myChart.datasets[0].data[6] = res.Self_Motivation_Score
             this.myChart.datasets[0].data[7] = res.Problem_Solving_Score
 
-            const baseline = await axios.post('http://localhost:3000/user/information',
+            const baseline = await axios.post('http://localhost:3000/user/avginformation',
            {
                 userId:localStorage.userId
                 // skillId: this.$route.params.id
