@@ -9,7 +9,7 @@
                         src="https://i.imgur.com/3DvN4YE.png"
                         alt=""
                     />
-                    <h2>Checkout form</h2>
+                    <h2>Registeration</h2>
                     <p class="font-head">
                         Level up your coding skills and quickly land a job.
                     </p>
@@ -29,7 +29,7 @@
                             <input
                                 type="text"
                                 class="form-control"
-                                id="firstName"
+                                id="firstname"
                                 placeholder=""
                                 value=""
                                 required=""
@@ -39,7 +39,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="lastName">Last name</label>
+                            <label for="lastname">Last name</label>
                             <input
                                 type="text"
                                 class="form-control"
@@ -107,64 +107,45 @@
                             </div>
                         </div>
                     </div>
-                    <!-- MBTI -->
-                    <div class="row">
-                        <div class="col-md-3 mb-3">
-                            <label for="date">Birthday</label>
-                            <select
-                                class="custom-select d-block w-100"
-                                id="date"
-                                required=""
-                            >
-                                <option value="">day</option>
-                                <option>...</option>
-                            </select>
-                            <!-- <div class="invalid-feedback">
-              Please select a valid country.
-            </div> -->
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="month">.</label>
-                            <select
-                                class="custom-select d-block w-100"
-                                id="month"
-                                required=""
-                            >
-                                <option value="">month</option>
-                                <option>...</option>
-                            </select>
-                            <!-- <div class="invalid-feedback">
-              Please provide a valid state.
-            </div> -->
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="year">.</label>
-                            <select
-                                class="custom-select d-block w-100"
-                                id="year"
-                                required=""
-                            >
-                                <option value="">year</option>
-                                <option>...</option>
-                            </select>
-                            <!-- <div class="invalid-feedback">
-              Please provide a valid state.
-            </div> -->
-                        </div>
-                    </div>
                     <!-- เส้นขั้น -->
                     <hr class="mb-4" />
                     <!-- MBTI -->
                     <div class="mb-3">
-                        <label for="year">Personality Type</label>
-                        <select
-                            class="custom-select d-block w-100"
-                            id="year"
-                            required=""
-                        >
-                            <option value="">MBTI</option>
-                            <option>...</option>
-                        </select>
+                        <label for="mbti">Personality Type</label>
+                            <select class="custom-select d-block w-100" aria-label="mbtiSelect">
+                            <option selected>MBTI (Select)</option>
+                            <option id="mbtiid" value="0">N/A</option>
+                            <option id="mbtiid" value="1">INTJ</option>
+                            <option id="mbtiid" value="2">INTP</option>
+                            <option id="mbtiid" value="3">ENTJ</option>
+                            <option id="mbtiid" value="4">ENTP</option>
+                            <option id="mbtiid" value="5">INFJ</option>
+                            <option id="mbtiid" value="6">INFP</option>
+                            <option id="mbtiid" value="7">ENFJ</option>
+                            <option id="mbtiid" value="8">ENFP</option>
+                            <option id="mbtiid" value="9">ISTJ</option>
+                            <option id="mbtiid" value="10">ISFJ</option>
+                            <option id="mbtiid" value="11">ESTJ</option>
+                            <option id="mbtiid" value="12">ESFJ</option>
+                            <option id="mbtiid" value="13">ISTP</option>
+                            <option id="mbtiid" value="14">ISFP</option>
+                            <option id="mbtiid" value="15">ESTP</option>
+                            <option id="mbtiid" value="16">ESFP</option>
+                            </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="learingstyle">Learning Style</label>
+                            <select class="custom-select d-block w-100" aria-label="learningStyle">
+                            <option selected>Learing Style (Select)</option>
+                            <option id="learingstyleid" value="0">N/A</option>
+                            <option id="learingstyleid" value="1">Visual</option>
+                            <option id="learingstyleid" value="2">Aural</option>
+                            <option id="learingstyleid" value="3">Verbal</option>
+                            <option id="learingstyleid" value="4">Physical</option>
+                            <option id="learingstyleid" value="5">Logical</option>
+                            <option id="learingstyleid" value="6">Social</option>
+                            <option id="learingstyleid" value="7">Solitary</option>
+                            </select>
                     </div>
                     <!-- ปุ่มส่งฟอร์ม -->
                     <br />
