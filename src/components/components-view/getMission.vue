@@ -10,25 +10,26 @@
               <div class="row">
                 <!-- content mission stage -->
                 <!-- star rate -->
-                <div class="col-3 font-test2">{{i}}</div>
+                <div colspan="2"></div>
                 <!-- mission name -->
-
-                <td>
+                
                   <div class="col-9 text-left">
                   <p class="font-test1">{{item.Activity_Name}}</p>
+                  </div>
+                  <div class="col-9 text-left">
                   <p class="font-test2">{{item.Activity_Description}}</p>
                 </div>
                 <div class="hastag-mission">
                     <!-- <div class="badge badge-info">#Communication</div>
                     <div class="badge badge-success">#Language</div> -->
                   </div>
-                </td>
+            
                 <!-- button mission -->
                 <div class="col">
                   <button
                     type="button"
                     @click="viewForum"
-                    class="btn mission-button"
+                    class="btn btn-primary"
                     data-toggle="button"
                     aria-pressed="false"
                   >Start
