@@ -21,10 +21,18 @@ router
 
         res.send(User_ID)
     })
-    .post('/create', async (req, res) => {
-        let { username, password } = req.body
+    .post('/createUser', async (req, res) => {
+        let {username, password, firstname, lastname, email, mbtiid, learningstyleid} = req.body
 
-        await userInformation.addNewUser(username, password)
+        let user = await userInformation.isUserExisted(username)
+
+        if (user) return res.send('Username is already existed')
+
+        let mail = await userInformation.isEmailExisted(email)
+
+        if (mail) return res.send('E-mail is already existed')
+
+        await userInformation.addNewUser(username, password, firstname, lastname, email, mbtiid, learningstyleid)
 
         res.send(`${username} Added`)
     })

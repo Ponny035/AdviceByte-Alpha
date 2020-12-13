@@ -16,6 +16,20 @@ const isUserExisted = async username => {
     return data
 }
 
+const isEmailExisted = async email => {
+    const data = await table('User_Information')
+        .select('E_Mail')
+        .where({
+            E_Mail: email
+        })
+        .first()
+        .catch(error => {
+            throw error
+        })
+
+    return data
+}
+
 // ? Read
 const getUserID = async (username, password) => {
     const data = await table('User_Information')
@@ -33,10 +47,15 @@ const getUserID = async (username, password) => {
 }
 
 // ? Read
-const addNewUser = async (username, password) => {
+const addNewUser = async (username, password, firstname, lastname, email, mbtiid, learningstyleid) => {
     await table('User_Information').insert({
         User_Name: username,
-        Password: password
+        Password: password,
+        First_Name: firstname,
+        Last_Name: lastname,
+        E_Mail: email,
+        MBTI_ID: mbtiid,
+        Learning_Style_ID: learningstyleid
     })
 }
 
@@ -107,6 +126,7 @@ module.exports = {
     getInformation,
     getFinishActivity,
     getAVGInformation,
-    getFirstName
+    getFirstName,
+    isEmailExisted
 }
 
