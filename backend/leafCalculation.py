@@ -50,7 +50,7 @@ def getTotalLeaf(activityCount):
 
 def mapColor(skill):
     switcher = {
-        1: ["#4b596b","#8a94a3"],
+        1: ["#19699e","#2d7dc0"],
         2: ["#a695c1","#63628c"],
         3: ["#be231f","#e14541"],
         4: ["#f68711","#f76e10"],
