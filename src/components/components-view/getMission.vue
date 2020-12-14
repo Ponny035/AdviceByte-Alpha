@@ -43,39 +43,43 @@
         </template>
 
         <!-- เริ่ม_กล่องโค้ดเขียว -->
-    <div class="shadow-sm mission-stagee bg-green justify-content-sm-center">
-      <div class="container">
-        <div class="row">
-          <!-- content mission stage -->
-          <!-- star rate -->
-          <div class="col-3 font-test2"></div>
-          <!-- mission name -->
-          <td>
-            <div class="col-9 text-left">
-            <p class="font-test1">The Secret Rule of Modern Living AI</p>
-            <p class="font-test2">Example Mission With Something</p>
-          </div>
-          <div class="hastag-mission">
-              <!-- <div class="badge badge-info">#Communication</div>
-              <div class="badge badge-success">#Language</div> -->
+              <div class="shadow-sm mission-stagee bg-green justify-content-sm-center">
+            <div class="container">
+              <div class="row">
+                <!-- content mission stage -->
+                <!-- star rate -->
+                <div colspan="2"></div>
+                <!-- mission name -->
+                
+                  <div class="col-9 text-left">
+                  <p class="font-test1">x</p>
+                  </div>
+                  <div class="col-9 text-left">
+                  <p class="font-test2">x</p>
+                </div>
+                <div class="hastag-mission">
+                    <!-- <div class="badge badge-info">#Communication</div>
+                    <div class="badge badge-success">#Language</div> -->
+                  </div>
+            
+                <!-- button mission -->
+                <div class="col">
+                  <button
+                    type="button"
+                    @click="viewForum"
+                    class="btn btn-warning"
+                    data-toggle="button"
+                    aria-pressed="false"
+                  >
+                    Review
+                   
+                  </button>
+                </div>
+              </div>
+              <br>
+              <!-- จบกล่องโค้ดขาว -->
             </div>
-          </td>
-          <!-- button mission -->
-          <div class="col">
-            <button
-              type="button"
-              @click="viewForum"
-              class="btn mission-button"
-              data-toggle="button"
-              aria-pressed="false"
-            >Start
-            </button>
           </div>
-        </div>
-        <br>
-        <!-- จบกล่องโค้ดขาว -->
-      </div>
-    </div>
   </div>
 </template>
 
