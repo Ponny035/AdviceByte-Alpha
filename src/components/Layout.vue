@@ -72,33 +72,43 @@
                 <div class="col-md-3">
                     <!-- ranking card list -->
                     <div class="card" style="width: 18rem;">
+                        <!-- topic ranking -->
                         <div class="border-custom-up">
                             <p class="cardhd">Weekly Ranking</p>
                         </div>
+                        
                         <table class="table table-hover table-light">
                             <tbody>
-                                <tr>
-                                    <th scope="row" class="font-custom-list">
-                                        1
-                                    </th>
-                                    <td class>
-                                        <img
-                                            src="../image/1.jpg"
-                                            alt
-                                            class="rounded-circle"
-                                        />
-                                    </td>
-                                    <td class="font-custom-list">
-                                        Kritchagamol
-                                    </td>
-                                    <td class="font-custom-list">3/3</td>
-                                </tr>
+                                <template v-for="(item,i) in ranks" :key="i">
+                                    <tr>
+                                        <!-- ลำดับ user -->
+                                        <th scope="row" class="font-custom-list">
+                                            {{ item.rank }}
+                                        </th>
+                                        <td class>
+                                            <img
+                                                src="../image/1.jpg"
+                                                alt
+                                                class="rounded-circle"
+                                            />
+                                        </td>
+                                        <!-- ชื่อ users -->
+                                        <td class="font-custom-list">
+                                            {{item.user}}
+                                        </td>
+                                        <!-- ช่องว่างหลังชื่อไว้ก่อน -->
+                                        <td class="font-custom-list"></td>
+                                    </tr>
+                                </template>
                             </tbody>
                         </table>
+                        <!-- จบไส้แรงค์ -->
+                        
                         <div class="border-custom">
                             <a href="#" class="seemore">See more</a>
                         </div>
                     </div>
+
                     <div class="boxspace-card"></div>
                     <!-- เว้นบรรทัด -->
                     <div class="card" style="width: 18rem;">
@@ -137,7 +147,17 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
+    data() {
+        return {
+            ranks: [],
+        };
+    },
+    mounted() {
+      console.log(this.$route.params.id)
+      this.ranking()
+    },
     methods: {
         viewMission() {
             this.$router.push({ path: '/mission' })
@@ -151,6 +171,37 @@ export default {
         viewDashboard() {
             this.$router.push({ path: '/dashboard' })
         },
+        async ranking() {
+        console.log("Ranking TEST")
+            try {
+              await axios.post('http://localhost:3000/user/ranking',
+              {
+                userId:localStorage.userId ,
+              }).then(response => {
+                    const returnArray = [];
+                    const id = JSON.parse(response.data[0]);
+                    const rank = JSON.parse(response.data[1]);
+                    for(let i = 0; i < id.length; i += 1) {
+                        returnArray.push({
+                            user: id[i],
+                            rank: rank[i],
+                        });
+                    }
+                    this.ranks = returnArray;
+                    console.log(returnArray);
+              })
+            //   const list = ranks.data
+            //   for (const item in list) {
+            //     console.log(item)
+            //     this.data.push(list[item])
+            //   }
+              // this.data = data.data
+                
+            } catch (error) {
+                console.log(error)
+            }
+            
+        }
     }
 }
 </script>

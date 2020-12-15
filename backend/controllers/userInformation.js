@@ -94,6 +94,23 @@ router
 
         res.send(name)
     })
+    router.post('/ranking', async (req, res) => {
+        const userId = req.body.userId
+        console.log(userId)
+        if (!userId) return res.status(403).send('Unanthorized')
+    
+        const pythonShellOptions = {
+            args: [userId],
+            scriptPath: 'backend'
+        }
+        PythonShell.run(
+            'ranking.py',
+            pythonShellOptions,
+            async (err, results) => {
+                res.send(results)
+            }
+        )
+    })
 
 module.exports = router
 
