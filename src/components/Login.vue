@@ -109,8 +109,12 @@ export default {
                     password: this.password
                 }
                 )
-                console.log(data)
                 localStorage.setItem('userId', data.data.User_ID)
+                // if (data.response == 200) {
+                    this.$router.push({
+                        name: 'profile'
+                    })
+                // }
             } catch (error) {
                 console.log(error)
             }

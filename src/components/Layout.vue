@@ -58,6 +58,14 @@
                                             />
                                             <br />Profile
                                         </li>
+                                        <li @click="logout">
+                                            <img
+                                                src="../image/profile.svg"
+                                                alt
+                                                class="svg"
+                                            />
+                                            <br />Logout
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -163,6 +171,12 @@ export default {
       this.generalMission()
     },
     methods: {
+        logout() {
+            localStorage.removeItem('userId')
+            this.$router.push({
+                name: 'Login'
+            })
+        },
         viewMission() {
             this.$router.push({ path: '/mission' })
         },

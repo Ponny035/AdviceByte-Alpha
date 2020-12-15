@@ -16,12 +16,20 @@ import Layout from '../components/Layout.vue'
 import Register from '../components/Register.vue'
 import Response from '../components/Response.vue'
 
+const guardAuth = async (to, from, next) => {
+    if (localStorage.getItem('userId')) {
+      next(); // TODO: implement token expire check
+    } else {
+      next({ name: 'Login' });
+    }
+  };
+
 const routes = [
 
     {
         path: '/login',
         component: Login,
-        name: ''
+        name: 'Login'
     },
     {
         path: '/register',
@@ -31,6 +39,7 @@ const routes = [
     {
         path: '/',
         component: Layout,
+        beforeEnter: guardAuth,
         children: [
             {
                 path: '/hello',
