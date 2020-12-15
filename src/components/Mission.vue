@@ -60,6 +60,7 @@ export default {
              this.$router.push({path: `/mission/${n}`});
          }
      }
+
 }
 </script>
 

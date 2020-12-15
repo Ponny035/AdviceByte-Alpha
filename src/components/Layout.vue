@@ -74,7 +74,7 @@
                     <div class="card" style="width: 18rem;">
                         <!-- topic ranking -->
                         <div class="border-custom-up">
-                            <p class="cardhd">Weekly Ranking</p>
+                            <p class="cardhd">Monthly Ranking</p>
                         </div>
                         
                         <table class="table table-hover table-light">
@@ -120,6 +120,7 @@
                             style="width: 18rem;"
                         >
                             <tbody class="d-flex bd-highlight">
+                                <template v-for="(item,i) in ranks" :key="i">
                                 <tr>
                                     <th scope="row" class="type-mission">
                                         [Daily]
@@ -128,12 +129,13 @@
                                         class="text-left font-custom-list p-2 flex-fill bd-highlight"
                                         @click="viewQuest"
                                     >
-                                        The Secret Rules of Modern Living
-                                        <p class="mission-detail">
+                                        {{item.Activity_Name}}
+                                        <!-- <p class="mission-detail">
                                             fake detail
-                                        </p>
+                                        </p> -->
                                     </td>
                                 </tr>
+                                </template>
                             </tbody>
                         </table>
                         <div class="border-custom">
@@ -152,6 +154,7 @@ export default {
     data() {
         return {
             ranks: [],
+            data: [],
         };
     },
     mounted() {
@@ -201,7 +204,32 @@ export default {
                 console.log(error)
             }
             
-        }
+        },
+        async generalMission() {
+          console.log("generalMission")
+              try {
+                const general = await axios.post('http://localhost:3000/activity/generalRecommendation',
+                {
+                  userId:localStorage.userId ,
+                })
+                console.log(general)
+                const geRec = general.data
+
+                let DATA = []
+                for (let i = 0; i < 3; i++) {
+                  console.log(i)
+                  DATA.push(geRec[i])
+                }
+
+                this.data = DATA
+                console.log(DATA)
+                  
+              } catch (error) {
+                  console.log(error)
+              }
+              
+          }
+
     }
 }
 </script>

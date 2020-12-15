@@ -11,6 +11,7 @@ import Profile from '../components/components-view/Profile.vue'
 // import Week from '../components/Week.vue';
 import Charty from '../components/components-view/Chart.vue'
 import getForum from '../components/getForum.vue'
+import getGeneral from '../components/getGeneral.vue'
 import Layout from '../components/Layout.vue'
 import Register from '../components/Register.vue'
 import Response from '../components/Response.vue'
@@ -70,6 +71,12 @@ const routes = [
                 component: Mission,
                 name: 'mission',
                 children: [
+                    {
+                        path: '',
+                        component: getGeneral,
+                        name: 'getGeneral',
+                        meta: {}
+                    },
                     {
                         path: ':id',
                         component: getMission,
