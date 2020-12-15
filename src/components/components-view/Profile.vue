@@ -6,18 +6,12 @@
         <div class="container">
             <div class="colorTag">
             <div class="row">
+                <template v-for="(item,i) in data" :key="i">
                 <div class="col-6 col-md-4">
-                <svg class="bd-placeholder-img mr-2 rounded" width="15" height="15" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#8a94a3"></rect></svg>
-                Algorithm
+                <svg class="bd-placeholder-img mr-2 rounded" width="15" height="15" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" :fill="helloWorld"></rect></svg>
+                <!-- {{something}} -->
                 </div>
-                <div class="col-6 col-md-4">
-                <svg class="bd-placeholder-img mr-2 rounded" width="15" height="15" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#63628c"></rect></svg>
-                Data Structure
-                </div>
-                 <div class="col-6 col-md-4">
-                <svg class="bd-placeholder-img mr-2 rounded" width="15" height="15" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#e14541"></rect></svg>
-                Coding
-                </div>
+                </template>
             </div>
             </div>
         </div>
@@ -86,12 +80,31 @@
 </template>
 
 <script>
+import axios from 'axios'
 import Tree from '../getTree'
 export default {
     components: {
         Tree
+    },
+    async created(){
+        try {
+            console.log(localStorage.userId)
+
+            const response = await axios.post('http://localhost:3000/user/tree',
+            {
+                userId:localStorage.userId
+                // skillId: this.$route.params.id
+            })
+            console.log(response)
+
+            let data = response.data
+            console.log(data)
+        }
+        catch (error) {
+            console.log(error)
+        }
     }
-}
+    }
 </script>
 
 <style>

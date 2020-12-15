@@ -42,15 +42,15 @@
           </div>
         </template>
 
-        <!-- เริ่ม_กล่องโค้ดเขียว -->
+        <!-- เริ่ม_กล่องโค้ดเขียว
               <div class="shadow-sm mission-stagee bg-green justify-content-sm-center">
             <div class="container">
               <div class="row">
-                <!-- content mission stage -->
-                <!-- star rate -->
+                content mission stage 
+                star rate
                 <div colspan="2"></div>
-                <!-- mission name -->
-                
+               mission name
+               
                   <div class="col-9 text-left">
                   <p class="font-test1">x</p>
                   </div>
@@ -58,11 +58,11 @@
                   <p class="font-test2">x</p>
                 </div>
                 <div class="hastag-mission">
-                    <!-- <div class="badge badge-info">#Communication</div>
-                    <div class="badge badge-success">#Language</div> -->
+                    <div class="badge badge-info">#Communication</div>
+                    <div class="badge badge-success">#Language</div>
                   </div>
             
-                <!-- button mission -->
+                button mission
                 <div class="col">
                   <button
                     type="button"
@@ -77,9 +77,9 @@
                 </div>
               </div>
               <br>
-              <!-- จบกล่องโค้ดขาว -->
+              จบกล่องโค้ดขาว
             </div>
-          </div>
+          </div> -->
   </div>
 </template>
 

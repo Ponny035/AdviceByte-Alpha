@@ -113,21 +113,20 @@
                     <!-- เว้นบรรทัด -->
                     <div class="card" style="width: 18rem;">
                         <div class="border-custom-up">
-                            <p class="cardhd">Daily Mission</p>
+                            <p class="cardhd">Missions For You</p>
                         </div>
                         <table
                             class="table table-hover table-light"
                             style="width: 18rem;"
                         >
+                        <template v-for="(item,i) in data" :key="i">
                             <tbody class="d-flex bd-highlight">
-                                <template v-for="(item,i) in ranks" :key="i">
                                 <tr>
                                     <th scope="row" class="type-mission">
                                         [Daily]
                                     </th>
                                     <td
                                         class="text-left font-custom-list p-2 flex-fill bd-highlight"
-                                        @click="viewQuest"
                                     >
                                         {{item.Activity_Name}}
                                         <!-- <p class="mission-detail">
@@ -135,8 +134,9 @@
                                         </p> -->
                                     </td>
                                 </tr>
-                                </template>
+                                
                             </tbody>
+                            </template>
                         </table>
                         <div class="border-custom">
                             <a href="#" class="seemore">See more</a>
@@ -160,6 +160,7 @@ export default {
     mounted() {
       console.log(this.$route.params.id)
       this.ranking()
+      this.generalMission()
     },
     methods: {
         viewMission() {
@@ -193,13 +194,7 @@ export default {
                     this.ranks = returnArray;
                     console.log(returnArray);
               })
-            //   const list = ranks.data
-            //   for (const item in list) {
-            //     console.log(item)
-            //     this.data.push(list[item])
-            //   }
-              // this.data = data.data
-                
+            
             } catch (error) {
                 console.log(error)
             }
