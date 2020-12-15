@@ -1,5 +1,6 @@
 import connectDB
 import sys
+import json
 
 def getInformation(userId):
     query = "SELECT `User_Name` FROM `User_Information` WHERE `User_ID` = "+ str(userId)
@@ -44,5 +45,5 @@ else:
     listRankName.append(getInformation(userId))
     listRankPosition.append(rank)
 
-print(listRankName)
-print(listRankPosition)
+print(json.dumps(listRankName))
+print(json.dumps(listRankPosition))
