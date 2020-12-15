@@ -59,4 +59,12 @@ router.post('/recommendation', async (req, res) => {
     console.log("check2")
 })
 
+router.post('/finish', async (req, res) => {
+    let { userId, activityId } = req.body
+
+    let query = await activityInformation.addHistory(userId, activityId)
+
+    res.send(`Done`)
+})
+
 module.exports = router

@@ -18,7 +18,18 @@ const getActivitiesInformation = async activityId => {
     return activity
 }
 
+
+const addHistory = async (userId, activityId) => {
+    await table('User_Activity_Status_History').insert({
+        User_ID: userId,
+        Activity_ID: activityId,
+        Status_ID: 3
+    })
+}
+
+
 module.exports = {
     getActivitiesRecommendation,
-    getActivitiesInformation
+    getActivitiesInformation,
+    addHistory
 }
