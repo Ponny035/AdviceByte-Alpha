@@ -9,6 +9,7 @@ const bodyParser = require('body-parser'),
 // ? Controllers
 const userInformation = require('./controllers/userInformation')
 const activityInformation = require('./controllers/activityInformation')
+const forumInformation = require('./controllers/forumInformation')
 
 // ? Initialize Plugins
 app.use(bodyParser.json())
@@ -29,6 +30,7 @@ app.get('/', async (req, res) => {
 
 app.use('/user', userInformation)
 app.use('/activity', activityInformation)
+app.use('/forum', forumInformation)
 
 app.listen(3000, () => {
     console.log('> Listening at http://localhost:3000')

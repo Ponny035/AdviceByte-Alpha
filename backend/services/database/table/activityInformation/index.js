@@ -9,6 +9,16 @@ const getActivitiesRecommendation = async activityIds => {
     return activities
 }
 
+const getActivitiesInformation = async activityId => {
+    const {Activity_ID} = activityId
+    const activity = await table('Activity')
+        .select(['Activity_Name', 'Activity_Description'])
+        .where({Activity_ID: Activity_ID })
+
+    return activity
+}
+
 module.exports = {
-    getActivitiesRecommendation
+    getActivitiesRecommendation,
+    getActivitiesInformation
 }
