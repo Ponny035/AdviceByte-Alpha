@@ -4,7 +4,7 @@ const table = require('../../connection')
 // ? Read
 
 const getforum = async forumId => {
-    const query = "SELECT Activity_Name FROM Activity WHERE `Activity_ID` IN (SELECT `Activity_ID` FROM `Forum`)"
+    const query = "SELECT `Forum_ID`, `Activity_Name` FROM Activity,Forum WHERE Forum.Activity_ID = Activity.Activity_ID"
     const result = await table.schema.raw(query)
     const activity_name = result[0]
     return activity_name

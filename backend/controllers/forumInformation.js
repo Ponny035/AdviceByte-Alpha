@@ -17,8 +17,8 @@ router
         const forumId = req.body.forumId
 
         let activityId = await forumInformation.getActivityId(forumId)
-
-        let information = await activityInformation.getActivitiesInformation(activityId)
+        const {Activity_ID} = activityId
+        let information = await activityInformation.getActivitiesInformation(Activity_ID)
 
         res.send(information)
     })

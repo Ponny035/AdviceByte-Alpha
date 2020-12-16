@@ -7,7 +7,7 @@ const express = require('express'),
 router.post('/information', async (req, res) => {
     let { activityId } = req.body
 
-    let information = await activityInformation.getActivitiesRecommendation(
+    let information = await activityInformation.getActivitiesInformation(
         activityId
     )
 

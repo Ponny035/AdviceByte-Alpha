@@ -3,17 +3,16 @@ const table = require('../../connection')
 
 const getActivitiesRecommendation = async activityIds => {
     const activities = await table('Activity')
-        .select(['Activity_Name', 'Activity_Description'])
+        .select(['Activity_ID', 'Activity_Name', 'Activity_Description'])
         .whereIn('Activity_ID', activityIds)
 
     return activities
 }
 
 const getActivitiesInformation = async activityId => {
-    const {Activity_ID} = activityId
     const activity = await table('Activity')
-        .select(['Activity_Name', 'Activity_Description'])
-        .where({Activity_ID: Activity_ID })
+        .select(['Activity_Name','Activity_Name', 'Activity_Description','Is_Forum'])
+        .where({Activity_ID: activityId })
 
     return activity
 }
