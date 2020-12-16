@@ -28,7 +28,7 @@
                 <div class="col">
                   <button
                     type="button"
-                    @click="viewForum"
+                    @click="viewForum(item.Activity_ID)"
                     class="btn btn-primary"
                     data-toggle="button"
                     aria-pressed="false"
@@ -96,8 +96,8 @@ export default {
       this.mission()
     },
     methods: {
-      viewForum() {
-        this.$router.push({ name: 'forum' })
+      viewForum(id) {
+        this.$router.push({ name: 'activity-id', params: { id: id }});
         },
         async mission() {
         console.log("TEST2")
