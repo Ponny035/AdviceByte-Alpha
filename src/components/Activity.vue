@@ -1,29 +1,23 @@
 <template>
     <div class="getAnswer">
+        <!-- หมุนตอนโหลด -->
         <div class="container p-2 bd-highlight">
             <div class="content-bg bg-white">
                 <div class="bg-white p-3 mb rounded box-try">
                     <div class="row justify-content-between">
-                        <!-- title mission -->
-                        <div class="font text-left col-sm-6 col-md-8" style="">
-                            the goos doctor never knpw what he deaking with you
-                            you with
+                        <!-- ชื่อของ -->
+                         <div class="getActivity" v-if="forum.Is_Forum">
+                             <!-- <div class="getActivity" v-if="isForum in data === '1'"> -->
+                            <Activity :forum="forum"></Activity>
                         </div>
-                        <div class="col col-lg-2">
-                            <a
-                                @click="viewMission"
-                                style="font-size: 15px; color: #37437e"
-                            >
-                                <img src="~@/assets/Back.svg" class="back" />
-                                Back
-                            </a>
-                        </div>
+                <div class="getActivity" v-else>
+                    <!-- <div class="getActivity" v-else-if="isForum in data === '0'"> -->
+                    <Activito :forum="forum"></Activito>
+                </div>
                     </div>
                 </div>
                 <!-- Response -->
-                <div class="getReponse">
-                    <Response></Response>
-                </div>
+               
                 <div class="Footer" style="padding-bottom: 10%"></div>
             </div>
         </div>
@@ -31,16 +25,48 @@
 </template>
 
 <script>
-import Response from './getResponse'
+import axios from 'axios'
+import Activity from './getActivity' //มีปุ่มส่ง
+import Activito from './Activity_0' // ไม่มีปุ่มส่ง
 
 export default {
-    methods: {
-        viewMission() {
-            this.$router.push({ path: '/Mission' })
-        }
+     data() {
+        return {
+            forum:{
+                Is_Forum: 1
+            },
+            forumId:''
+        };
+    },
+    async mounted() {
+      console.log(this.$route.params.id)
+      console.log("HEELOO")
+      await this.activities()
+      console.log("HEELOO ISUS")
     },
     components: {
-        Response
+        Activito,
+        Activity
+    },
+    methods: {
+        async activities() {
+            console.log("avtivities")
+                try {
+                    const response = await axios.post('http://localhost:3000/forum/herderInformation',
+                    {
+                    forumId: this.$route.params.id
+                    })
+                    console.log(response)
+                    const res = response.data
+
+                    this.forum = res[0]
+                    console.log(res)
+
+                } catch (error) {
+                  console.log(error)
+                }
+        }
+
     }
 }
 </script>

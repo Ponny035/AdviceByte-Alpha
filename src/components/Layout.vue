@@ -59,10 +59,11 @@
                                             <br />Profile
                                         </li>
                                         <li @click="logout">
-                                            <img
-                                                src="../image/profile.svg"
+                                            <svg
+                                                src="../image/logout.svg"
                                                 alt
                                                 class="svg"
+                                                style="color:white"
                                             />
                                             <br />Logout
                                         </li>
@@ -190,7 +191,6 @@ export default {
             this.$router.push({ path: '/dashboard' })
         },
         async ranking() {
-        console.log("Ranking TEST")
             try {
               await axios.post('http://localhost:3000/user/ranking',
               {
@@ -206,7 +206,6 @@ export default {
                         });
                     }
                     this.ranks = returnArray;
-                    console.log(returnArray);
               })
             
             } catch (error) {
@@ -215,24 +214,19 @@ export default {
             
         },
         async generalMission() {
-          console.log("generalMission")
               try {
                 const general = await axios.post('http://localhost:3000/activity/generalRecommendation',
                 {
                   userId:localStorage.userId ,
                 })
-                console.log(general)
                 const geRec = general.data
 
                 let DATA = []
                 for (let i = 0; i < 3; i++) {
-                  console.log(i)
                   DATA.push(geRec[i])
                 }
 
                 this.data = DATA
-                console.log(DATA)
-                  
               } catch (error) {
                   console.log(error)
               }
@@ -247,6 +241,10 @@ export default {
 @import '../styles/custom.min.css';
 @import '../styles/custom.scss';
 @import '../styles/custom.css';
+
+.svg { 
+    fill: #FFFFFF;
+}
 
 .type-mission {
     font-family: Poppins;
@@ -277,6 +275,10 @@ export default {
 .content-box {
     padding: 2rem;
     padding-bottom: 4rem;
+}
+
+.card-nav { 
+    height: 380px;
 }
 
 .spacenav {

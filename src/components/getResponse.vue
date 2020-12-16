@@ -1,21 +1,47 @@
 <template>
     <div class="getReponse">
-        <div class="container">
-            <div class="shadow-sm mission-stagee bg justify-content-sm-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="text-left">
-                            สวัสดีครับ ผมว่านี่มันแปลกมากเลยนะ
+        <template v-for="(item, i) in responses" :key="i">
+            <div class="container">
+                <div class="shadow-sm mission-stagee bg justify-content-sm-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="text-left">
+                                {{ item.Comment }}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </template>
     </div>
 </template>
 
 <script>
-export default {}
+import axios from 'axios';
+export default {
+    async mounted() {
+        await this.getResponse();
+    },
+    methods: {
+        async getResponse() {
+            await axios.post('http://localhost:3000/forum/commentInformation', {
+                forumId: parseInt(this.$route.params.id, 10),
+            })
+            .then(response => {
+                if (response.status === 200) {
+                    this.responses = response.data
+                }
+            }).catch(err => {
+                console.log(err);
+            })
+        },
+    },
+    data() {
+        return {
+            responses: [],
+        };
+    },
+}
 </script>
 
 <style>

@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import CenterContext from '../components/CenterContext.vue'
+import CenterContext from '../components/centerContext.vue'
 import Mission from '../components/Mission.vue'
 import Stat from '../components/Stat.vue'
 import Login from '../components/Login.vue'
@@ -14,6 +14,7 @@ import getForum from '../components/getForum.vue'
 import getGeneral from '../components/getGeneral.vue'
 import Layout from '../components/Layout.vue'
 import Register from '../components/Register.vue'
+import Activity from '../components/Activity.vue'
 import Response from '../components/Response.vue'
 
 const guardAuth = async (to, from, next) => {
@@ -42,9 +43,9 @@ const routes = [
         beforeEnter: guardAuth,
         children: [
             {
-                path: '/hello',
-                component: Response,
-                name: ''
+                path: '/activity/:id',
+                component: Activity,
+                name: '',
             },
             {
                 path: '',
@@ -113,6 +114,11 @@ const routes = [
                         meta: { displayTitle: 'Stat_Test' }
                     }
                 ]
+            },
+            {
+                path: '/response/:id',
+                component: Response,
+                name: 'response'
             }
         ]
     }
