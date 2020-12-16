@@ -57,6 +57,7 @@ export default {
                 axios.post('http://localhost:3000/forum/addComment', {
                     forumId: this.$route.params.id,
                     comment: this.comment,
+                    userId:localStorage.userId ,
                 }).then(response => {
                     if (response.status === 200) this.$router.push({ name: 'dashboard' });
                 }).catch(err => console.log(err));

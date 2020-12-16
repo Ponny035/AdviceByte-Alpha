@@ -45,7 +45,7 @@ const routes = [
             {
                 path: '/activity/:id',
                 component: Activity,
-                name: '',
+                name: 'activity-id',
             },
             {
                 path: '',

@@ -28,7 +28,7 @@
                 <div class="col">
                   <button
                     type="button"
-                    @click="viewForum"
+                    @click="viewForum(item.Activity_ID)"
                     class="btn btn-primary"
                     data-toggle="button"
                     aria-pressed="false"
@@ -96,33 +96,36 @@ export default {
         this.generalMission()
       },
       methods: {
-          // path(n){
-          //     this.$router.push({path: `/mission/${n}`});
-          // },
-          async generalMission() {
-          console.log("generalMission")
-              try {
-                const general = await axios.post('http://localhost:3000/activity/generalRecommendation',
-                {
-                  userId:localStorage.userId ,
-                })
-                console.log(general)
-                const geRec = general.data
+        viewForum(id) {
+          this.$router.push({ name: 'activity-id', params: { id: id }});
+        },
+        // path(n){
+        //     this.$router.push({path: `/mission/${n}`});
+        // },
+        async generalMission() {
+        console.log("generalMission")
+            try {
+              const general = await axios.post('http://localhost:3000/activity/generalRecommendation',
+              {
+                userId:localStorage.userId ,
+              })
+              console.log(general)
+              const geRec = general.data
 
-                let DATA = []
-                for (let i = 0; i < 3; i++) {
-                  console.log(i)
-                  DATA.push(geRec[i])
-                }
-
-                this.data = DATA
-                console.log(DATA)
-                  
-              } catch (error) {
-                  console.log(error)
+              let DATA = []
+              for (let i = 0; i < 3; i++) {
+                console.log(i)
+                DATA.push(geRec[i])
               }
-              
-          }
+
+              this.data = DATA
+              console.log(DATA)
+                
+            } catch (error) {
+                console.log(error)
+            }
+            
+        }
       }
 }
 </script>

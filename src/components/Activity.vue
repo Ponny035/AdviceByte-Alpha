@@ -42,7 +42,7 @@ export default {
       console.log(this.$route.params.id)
       console.log("HEELOO")
       await this.activities()
-      console.log("HEELOO ISUS")
+      console.log("HEELOO ITU")
     },
     components: {
         Activito,
@@ -52,9 +52,9 @@ export default {
         async activities() {
             console.log("avtivities")
                 try {
-                    const response = await axios.post('http://localhost:3000/forum/herderInformation',
+                    const response = await axios.post('http://localhost:3000/activity/information',
                     {
-                    forumId: this.$route.params.id
+                    activityId: parseInt(this.$route.params.id, 10),
                     })
                     console.log(response)
                     const res = response.data

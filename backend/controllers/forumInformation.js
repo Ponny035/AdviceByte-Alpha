@@ -14,7 +14,7 @@ router
     })
 
     .post('/herderInformation', async (req, res) => {
-        const forumId = req.body.forumId
+        const forumId = req.body.activityId
 
         let activityId = await forumInformation.getActivityId(forumId)
         const {Activity_ID} = activityId
@@ -22,6 +22,7 @@ router
 
         res.send(information)
     })
+
 
     .post('/commentInformation', async (req, res) => {
         const forumId = req.body.forumId
@@ -32,9 +33,14 @@ router
     })
 
     .post('/addComment', async (req, res) => {
-        let {forumId, comment} = req.body
+        let {forumId, comment, userId} = req.body
 
         await  forumInformation.addCommemt(forumId, comment)
+
+        let activityId = await forumInformation.getActivityId(forumId)
+        const {Activity_ID} = activityId
+
+        activityInformation.addHistory(userId, Activity_ID)
 
         res.send(`comment Added`)
     })
