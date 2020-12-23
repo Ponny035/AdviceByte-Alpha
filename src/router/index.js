@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import CenterContext from '../components/centerContext.vue'
+import CenterContext from '../components/CenterContext.vue'
 import Mission from '../components/Mission.vue'
 import Stat from '../components/Stat.vue'
 import Login from '../components/Login.vue'
