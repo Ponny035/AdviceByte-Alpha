@@ -91,7 +91,7 @@ export default {
     methods: {
         async checkForm() {
             try {
-                // const data = await fetch('${process.env.VUE_APP_API_URI}/user/login', {
+                // const data = await fetch('${process.env.VUE_APP_APIURI}/user/login', {
                 // method: 'POST',
                 // credentials: 'same-origin',
                 // headers: {
@@ -103,7 +103,7 @@ export default {
                 // })
 
                 const data = await axios.post(
-                    `${process.env.VUE_APP_API_URI}/user/login`,
+                    `${process.env.VUE_APP_APIURI}/user/login`,
                     {
                         username: this.username,
                         password: this.password
@@ -136,8 +136,6 @@ export default {
 
 .pad-head {
     padding-bottom: 150px;
-}
-.container {
 }
 
 .btn-color {

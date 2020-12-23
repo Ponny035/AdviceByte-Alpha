@@ -53,7 +53,7 @@ export default {
             console.log('avtivities')
             try {
                 const response = await axios.post(
-                    `${process.env.VUE_APP_API_URI}/activity/information`,
+                    `${process.env.VUE_APP_APIURI}/activity/information`,
                     {
                         activityId: parseInt(this.$route.params.id, 10)
                     }

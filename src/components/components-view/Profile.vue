@@ -107,7 +107,7 @@ export default {
             console.log(localStorage.userId)
 
             const response = await axios.post(
-                `${process.env.VUE_APP_API_URI}/user/tree`,
+                `${process.env.VUE_APP_APIURI}/user/tree`,
                 {
                     userId: localStorage.userId
                     // skillId: this.$route.params.id

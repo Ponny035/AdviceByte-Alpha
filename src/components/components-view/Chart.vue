@@ -13,7 +13,7 @@ import axios from 'axios'
 export default {
     async created() {
         const response = await axios.post(
-            `${process.env.VUE_APP_API_URI}/user/information`,
+            `${process.env.VUE_APP_APIURI}/user/information`,
             {
                 userId: localStorage.userId
                 // skillId: this.$route.params.id
@@ -32,7 +32,7 @@ export default {
         this.myChart.datasets[0].data[7] = res.Problem_Solving_Score
 
         const baseline = await axios.post(
-            `${process.env.VUE_APP_API_URI}/user/avginformation`,
+            `${process.env.VUE_APP_APIURI}/user/avginformation`,
             {
                 userId: localStorage.userId
                 // skillId: this.$route.params.id

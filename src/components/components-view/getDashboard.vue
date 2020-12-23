@@ -39,7 +39,7 @@ export default {
     methods: {
         async getActivitiyList() {
             await axios
-                .post(`${process.env.VUE_APP_API_URI}/forum/forumList`)
+                .post(`${process.env.VUE_APP_APIURI}/forum/forumList`)
                 .then(response => {
                     if (response.status === 200) {
                         return (this.activities = response.data)

@@ -53,7 +53,7 @@ export default {
         submitComment() {
             if (this.comment != '') {
                 axios
-                    .post(`${process.env.VUE_APP_API_URI}/forum/addComment`, {
+                    .post(`${process.env.VUE_APP_APIURI}/forum/addComment`, {
                         forumId: this.$route.params.id,
                         comment: this.comment,
                         userId: localStorage.userId
