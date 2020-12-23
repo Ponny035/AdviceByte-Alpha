@@ -8,7 +8,6 @@
 ## Installation (On RHEL7/CENTOS7)
 
  - `sudo setenforce Permissive`
- - `yum install gcc gcc-c++ make`
  - `sudo yum install python3`
  - `sudo pip3 install --upgrade mysql-connector-python`
  - `sudo yum install git`
