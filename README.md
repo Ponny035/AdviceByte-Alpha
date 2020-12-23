@@ -8,6 +8,7 @@
 ## Installation (On RHEL7/CENTOS7)
 
  - `sudo setenforce Permissive`
+ - `yum install gcc gcc-c++ make`
  - `sudo yum install python3`
  - `sudo pip3 install --upgrade mysql-connector-python`
  - `sudo yum install git`
@@ -30,7 +31,7 @@
  - `sudo npm i pm2@latest -g`
  - `npm i`
  - `cd ./Recommendation\ System/Cluster/`
- - `vim connectDB`
+ - `vim connectDB.py`
 ```
 import mysql.connector
 
@@ -43,7 +44,7 @@ mydb = mysql.connector.connect(
 
 ```
  `cd ../../backend`
- `vim connectDB` again, copy the same code as above
+ `vim connectDB.py` again, copy the same code as above
 
 
  - `cd /home/nginx/AdviceByte-Alpha/sql && sudo docker-compose up -d`
