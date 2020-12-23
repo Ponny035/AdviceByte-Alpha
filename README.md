@@ -23,6 +23,7 @@
  - `cd /usr/share/nginx/html/app/sql && sudo docker-compose up -d`
  - `cd /usr/share/nginx/html/app && pm2 start pm2.json`
  - `npm i`
+ - Edit .env.production with `VUE_APP_APIURI="http://ip_address/api"`
  - `npm build`
  - `sudo yum install nginx`
  - `sudo chown -R nginx:nginx /usr/share/nginx/html/app/`
