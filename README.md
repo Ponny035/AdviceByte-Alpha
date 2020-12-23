@@ -60,6 +60,7 @@ http {
             try_files $uri $uri/ /index.html;
         }
         location /api {
+            rewrite /api/(.*) /$1  break;
             proxy_pass http://127.0.0.1:3000;
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;

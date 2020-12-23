@@ -121,7 +121,7 @@ export default {
                 //   }
                 // )
                 const response = await axios.post(
-                    '${process.env.API_URI}/activity/recommendation',
+                    `${process.env.API_URI}/activity/recommendation`,
                     {
                         userId: localStorage.userId,
                         skillId: this.$route.params.id

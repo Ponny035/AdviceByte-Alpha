@@ -217,7 +217,7 @@ export default {
         async generalMission() {
             try {
                 const general = await axios.post(
-                    '${process.env.API_URI}/activity/generalRecommendation',
+                    `${process.env.API_URI}/activity/generalRecommendation`,
                     {
                         userId: localStorage.userId
                     }

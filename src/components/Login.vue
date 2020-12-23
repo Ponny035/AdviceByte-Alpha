@@ -103,7 +103,7 @@ export default {
                 // })
 
                 const data = await axios.post(
-                    '${process.env.API_URI}/user/login',
+                    `${process.env.API_URI}/user/login`,
                     {
                         username: this.username,
                         password: this.password
