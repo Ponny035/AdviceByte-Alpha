@@ -29,29 +29,32 @@
  - `sudo yum install -y nodejs`
  - `sudo npm i pm2@latest -g`
  - `npm i`
- - `cd ./Recommendation System/Cluster/`
+ - `cd ./Recommendation\ System/Cluster/`
  - `vim connectDB`
- ```
-    import mysql.connector
-    mydb = mysql.connector.connect(
-      host="localhost:3306",
-      user="root",
-      password="advicebyte",
-      database="AdviceByte"
-    )
- ```
+```
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost:3306",
+  user="root",
+  password="advicebyte",
+  database="AdviceByte"
+)
+
+```
  `cd ../../backend`
  `vim connectDB` again, copy the same code as above
 
 
  - `cd /home/nginx/AdviceByte-Alpha/sql && sudo docker-compose up -d`
  - `cd /home/nginx/AdviceByte-Alpha && pm2 start pm2.json`
- - Edit .env.production with `VUE_APP_APIURI="http://ip_address/api"`
- - To edit .env.production cd to the desire folder and `sudo vim .env.production`
- - `npm build`
+ - Edit .env.production cd to the desire folder(IF YOU HAVEN'T) and `vim .env.production`
+ - Paste the .env.production with `VUE_APP_APIURI="http://ip_address/api"`
+ - `npm run build`
  - `sudo yum install nginx`
- - `sudo chown -R nginx:nginx /usr/share/nginx/html/app/`
+ - `sudo chown -R nginx:nginx /home/nginx/AdviceByte-Alpha/`
  - `sudo vim /etc/nginx/nginx.conf`
+ - To delete all: ` :%d `
  ```nginx
 user nginx;
 worker_processes auto;
