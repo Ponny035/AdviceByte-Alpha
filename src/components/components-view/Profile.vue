@@ -90,7 +90,7 @@ export default {
         try {
             console.log(localStorage.userId)
 
-            const response = await axios.post('http://localhost:3000/user/tree',
+            const response = await axios.post('process.env.API_URI0/user/tree',
             {
                 userId:localStorage.userId
                 // skillId: this.$route.params.id

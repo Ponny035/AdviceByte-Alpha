@@ -192,7 +192,7 @@ export default {
         },
         async ranking() {
             try {
-              await axios.post('http://localhost:3000/user/ranking',
+              await axios.post('process.env.API_URI0/user/ranking',
               {
                 userId:localStorage.userId ,
               }).then(response => {
@@ -215,7 +215,7 @@ export default {
         },
         async generalMission() {
               try {
-                const general = await axios.post('http://localhost:3000/activity/generalRecommendation',
+                const general = await axios.post('process.env.API_URI0/activity/generalRecommendation',
                 {
                   userId:localStorage.userId ,
                 })

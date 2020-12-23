@@ -1,0 +1,14 @@
+{
+    "apps": [
+      {
+        "name": "AdviceByte Backend",
+        "script": "backend/index.js",
+        "instances": 2,
+        "exec_mode": "cluster",
+        "env": {
+          "process.env.SECRET": "THIS_IS_A_SECRET",
+          "PORT": "3000"
+        }
+      }
+    ]
+  }

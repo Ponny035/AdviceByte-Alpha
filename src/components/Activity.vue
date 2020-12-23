@@ -52,7 +52,7 @@ export default {
         async activities() {
             console.log("avtivities")
                 try {
-                    const response = await axios.post('http://localhost:3000/activity/information',
+                    const response = await axios.post('process.env.API_URI0/activity/information',
                     {
                     activityId: parseInt(this.$route.params.id, 10),
                     })

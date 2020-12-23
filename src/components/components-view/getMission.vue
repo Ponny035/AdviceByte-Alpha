@@ -103,7 +103,7 @@ export default {
         console.log("TEST2")
             try {
                 // const data = await fetch(
-                //   'http://localhost:3000/activity/recommendation', 
+                //   'process.env.API_URI0/activity/recommendation', 
                 //   {
                 //     method: 'POST',
                 //     credentials: 'same-origin',
@@ -115,7 +115,7 @@ export default {
                 //     })
                 //   }
                 // )
-              const response = await axios.post('http://localhost:3000/activity/recommendation',
+              const response = await axios.post('process.env.API_URI0/activity/recommendation',
               {
                 userId:localStorage.userId ,
                 skillId: this.$route.params.id

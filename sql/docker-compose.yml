@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  db:
+    image: mariadb:10.3
+    container_name: advicebyte-database
+    restart: unless-stopped
+    tty: true
+    environment:
+      TZ: Asia/Bangkok
+      MYSQL_ROOT_PASSWORD: advicebyte
+    ports: 
+      - 3306:3306
+    networks:
+      - app-network
+    volumes:
+      - ./AdviceByte.sql`
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge

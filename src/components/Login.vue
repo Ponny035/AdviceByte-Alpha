@@ -92,7 +92,7 @@ export default {
     methods: {
         async checkForm() {
             try {
-                // const data = await fetch('http://localhost:3000/user/login', {
+                // const data = await fetch('process.env.API_URI0/user/login', {
                 // method: 'POST',
                 // credentials: 'same-origin',
                 // headers: {
@@ -103,7 +103,7 @@ export default {
                 //     password: this.password
                 // })
                 
-                const data = await axios.post('http://localhost:3000/user/login',
+                const data = await axios.post('process.env.API_URI0/user/login',
                 {
                     username: this.username,
                     password: this.password

@@ -24,7 +24,7 @@ export default {
     },
     methods: {
         async getResponse() {
-            await axios.post('http://localhost:3000/forum/commentInformation', {
+            await axios.post('process.env.API_URI0/forum/commentInformation', {
                 forumId: parseInt(this.$route.params.id, 10),
             })
             .then(response => {

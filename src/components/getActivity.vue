@@ -54,7 +54,7 @@ export default {
         },
         submitComment() {
             if (this.comment != '') {
-                axios.post('http://localhost:3000/forum/addComment', {
+                axios.post('process.env.API_URI0/forum/addComment', {
                     forumId: this.$route.params.id,
                     comment: this.comment,
                     userId:localStorage.userId ,

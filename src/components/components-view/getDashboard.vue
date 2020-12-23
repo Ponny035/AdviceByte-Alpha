@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     async getActivitiyList() {
-      await axios.post('http://localhost:3000/forum/forumList')
+      await axios.post('process.env.API_URI0/forum/forumList')
       .then(response => {
         if (response.status === 200) {
           return this.activities = response.data
