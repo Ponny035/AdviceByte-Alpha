@@ -13,13 +13,21 @@
  - `sudo yum install git`
  - `sudo yum install -y yum-utils`
  - `sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo`
-   - if error occur `sudo vim /etc/yum.repos.d/docker-ce.repo` change the `baseurl` for `docker-ce-stable` to `https://download.docker.com/linux/centos/7/$basearch/stable `
+ - if error occur `sudo vim /etc/yum.repos.d/docker-ce.repo` change the `baseurl` for `docker-ce-stable` to `https://download.docker.com/linux/centos/7/$basearch/stable `
  - `sudo yum install docker-ce docker-ce-cli containerd.io`
  - `sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose`
  - `sudo chmod +x /usr/bin/docker-compose`
  - `sudo systemctl start docker`
- - `git clone https://github.com/Ponny035/AdviceByte-Alpha.git /usr/share/nginx/html/app && cd /usr/share/nginx/html/app`
+ 
+ 
+ - `sudo mkdir /home/nginx`
+ - `sudo chmod 777 /home/nginx`
+ - `cd /home/nginx`
+ - `git clone https://github.com/Ponny035/AdviceByte-Alpha.git`
  - `cd ./AdviceByte-Alpha`
+ - `curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -`
+ - `sudo yum install -y nodejs`
+ - `sudo npm i pm2@latest -g`
  - `npm i`
  - `cd ./Recommendation System/Cluster/`
  - `vim connectDB`
@@ -32,14 +40,12 @@
       database="AdviceByte"
     )
  ```
- `cd ../../backend/connectDB.py`
+ `cd ../../backend`
  `vim connectDB` again, copy the same code as above
- - Within the folder 
- - `curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -`
- - `sudo yum install -y nodejs`
- - `sudo npm i pm2@latest -g`
- - `cd /usr/share/nginx/html/app/sql && sudo docker-compose up -d`
- - `cd /usr/share/nginx/html/app && pm2 start pm2.json`
+
+
+ - `cd /home/nginx/AdviceByte-Alpha/sql && sudo docker-compose up -d`
+ - `cd /home/nginx/AdviceByte-Alpha && pm2 start pm2.json`
  - Edit .env.production with `VUE_APP_APIURI="http://ip_address/api"`
  - To edit .env.production cd to the desire folder and `sudo vim .env.production`
  - `npm build`
@@ -72,7 +78,7 @@ http {
         listen       80 default_server;
         listen       [::]:80 default_server;
         server_name  _;
-        root         /homme/nginx/AdviceByte-Alpha/dist;
+        root         /home/nginx/AdviceByte-Alpha/dist;
         include /etc/nginx/default.d/*.conf;
         location / {
             index index.html;
