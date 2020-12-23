@@ -9,12 +9,13 @@ services:
     environment:
       TZ: Asia/Bangkok
       MYSQL_ROOT_PASSWORD: advicebyte
+      MYSQL_DATABASE: AdviceByte
     ports: 
       - 3306:3306
     networks:
       - app-network
     volumes:
-      - ./AdviceByte.sql`
+      - ./AdviceByte.sql:/docker-entrypoint-initdb.d/AdviceByte.sql
 
 #Docker Networks
 networks:
