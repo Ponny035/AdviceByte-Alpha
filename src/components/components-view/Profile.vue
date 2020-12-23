@@ -5,14 +5,30 @@
         <!-- award head -->
         <div class="container">
             <div class="colorTag">
-            <div class="row">
-                <template v-for="(item,i) in color" :key="i">
-                <div class="col-6 col-md-4">
-                <svg class="bd-placeholder-img mr-2 rounded" width="15" height="15" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" :fill="item.color"></rect></svg>
-                {{ item.skill }}
+                <div class="row">
+                    <template v-for="(item, i) in color" :key="i">
+                        <div class="col-6 col-md-4">
+                            <svg
+                                class="bd-placeholder-img mr-2 rounded"
+                                width="15"
+                                height="15"
+                                xmlns="http://www.w3.org/2000/svg"
+                                preserveAspectRatio="xMidYMid slice"
+                                focusable="false"
+                                role="img"
+                                aria-label="Placeholder: 32x32"
+                            >
+                                <title>Placeholder</title>
+                                <rect
+                                    width="100%"
+                                    height="100%"
+                                    :fill="item.color"
+                                ></rect>
+                            </svg>
+                            {{ item.skill }}
+                        </div>
+                    </template>
                 </div>
-                </template>
-            </div>
             </div>
         </div>
         <div class="award">
@@ -86,29 +102,30 @@ export default {
     components: {
         Tree
     },
-    async created(){
+    async created() {
         try {
             console.log(localStorage.userId)
 
-            const response = await axios.post('process.env.API_URI0/user/tree',
-            {
-                userId:localStorage.userId
-                // skillId: this.$route.params.id
-            })
+            const response = await axios.post(
+                '${process.env.API_URI}/user/tree',
+                {
+                    userId: localStorage.userId
+                    // skillId: this.$route.params.id
+                }
+            )
             console.log(response)
 
             let data = response.data
-            let [ colorTag ] = data
-
+            let [colorTag] = data
 
             colorTag = colorTag.substring(1, colorTag.length - 1)
             colorTag = colorTag.split(', ')
-            colorTag = colorTag.map((elm) => elm.substring(1, elm.length - 1))
+            colorTag = colorTag.map(elm => elm.substring(1, elm.length - 1))
 
             console.log(data)
             const returnArray = []
-            for(let i = 0; i < colorTag.length ; i++) {
-                let a = colorTag[i].split('\': \'')
+            for (let i = 0; i < colorTag.length; i++) {
+                let a = colorTag[i].split("': '")
                 returnArray.push({
                     skill: a[0],
                     color: a[1]
@@ -116,24 +133,21 @@ export default {
             }
             this.color = returnArray
             console.log(this.color)
-        }
-        catch (error) {
+        } catch (error) {
             console.log(error)
         }
     },
-    data() { 
+    data() {
         return {
-            color:[] 
+            color: []
         }
     }
-    }
+}
 </script>
 
 <style>
 .colorTag {
     padding-bottom: 5%;
-
-
 }
 
 .profile {

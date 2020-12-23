@@ -26,29 +26,23 @@
                 <div class="Footer" style="padding-bottom: 10%"></div>
             </div>
         </div>
-        
-    
     </div>
 </template>
 
 <script>
-
-
 export default {
     methods: {
         viewDashboard() {
             this.$router.push({ path: '/dashboard' })
         }
     },
-    components: {
-        
-    },
+    components: {},
     props: {
-        forum: { 
-            default(){
+        forum: {
+            default() {
                 return {
                     Activity_Name: '',
-                    Activity_Description: '',
+                    Activity_Description: ''
                 }
             }
         }

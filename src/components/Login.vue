@@ -68,7 +68,6 @@
                         </div>
                         <button
                             button
-                       
                             class="btn btn-lg btn-success btn-block"
                             type="submit"
                         >
@@ -92,7 +91,7 @@ export default {
     methods: {
         async checkForm() {
             try {
-                // const data = await fetch('process.env.API_URI0/user/login', {
+                // const data = await fetch('${process.env.API_URI}/user/login', {
                 // method: 'POST',
                 // credentials: 'same-origin',
                 // headers: {
@@ -102,23 +101,23 @@ export default {
                 //     username: this.username,
                 //     password: this.password
                 // })
-                
-                const data = await axios.post('process.env.API_URI0/user/login',
-                {
-                    username: this.username,
-                    password: this.password
-                }
+
+                const data = await axios.post(
+                    '${process.env.API_URI}/user/login',
+                    {
+                        username: this.username,
+                        password: this.password
+                    }
                 )
                 localStorage.setItem('userId', data.data.User_ID)
                 // if (data.response == 200) {
-                    this.$router.push({
-                        name: 'profile'
-                    })
+                this.$router.push({
+                    name: 'profile'
+                })
                 // }
             } catch (error) {
                 console.log(error)
             }
-            
         }
     }
 }
