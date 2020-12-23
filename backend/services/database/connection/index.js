@@ -3,7 +3,7 @@ const knex = require('knex')({
     connection: {
         host: 'localhost:3306',
         user: 'root',
-        password: process.env.PASSWORD,
+        password: 'advicebyte',
         database: 'AdviceByte'
     }
 })
