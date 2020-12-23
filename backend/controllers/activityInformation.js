@@ -7,7 +7,7 @@ const express = require('express'),
 router.post('/information', async (req, res) => {
     let { activityId } = req.body
 
-    let information = await activityInformation.getActivitiesRecommendation(
+    let information = await activityInformation.getActivitiesInformation(
         activityId
     )
 
@@ -57,6 +57,14 @@ router.post('/recommendation', async (req, res) => {
         }
     )
     console.log("check2")
+})
+
+router.post('/finish', async (req, res) => {
+    let { userId, activityId } = req.body
+
+    let query = await activityInformation.addHistory(userId, activityId)
+
+    res.send(`Done`)
 })
 
 module.exports = router

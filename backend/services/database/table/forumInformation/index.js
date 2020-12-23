@@ -4,12 +4,10 @@ const table = require('../../connection')
 // ? Read
 
 const getforum = async forumId => {
-    const list = await table('Forum')
-        .select([
-            'Forum_ID'
-        ])
-
-    return list
+    const query = "SELECT `Forum_ID`, `Activity_Name` FROM Activity,Forum WHERE Forum.Activity_ID = Activity.Activity_ID"
+    const result = await table.schema.raw(query)
+    const activity_name = result[0]
+    return activity_name
 }
 
 const getActivityId = async forumId => {

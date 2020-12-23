@@ -86,55 +86,47 @@
 <script>
 import axios from 'axios'
 export default {
-    data() {
-        return {
-            data:[]
-        }
-    },
-    mounted() {
-      console.log(this.$route.params.id)
-      this.mission()
-    },
-    methods: {
-      viewForum(id) {
-        this.$router.push({ name: 'activity-id', params: { id: id }});
+  data() {
+    return {
+      data: [],
+    }
+  },
+  mounted() {
+        console.log(this.$route.params.id)
+        this.generalMission()
+      },
+      methods: {
+        viewForum(id) {
+          this.$router.push({ name: 'activity-id', params: { id: id }});
         },
-        async mission() {
-        console.log("TEST2")
+        // path(n){
+        //     this.$router.push({path: `/mission/${n}`});
+        // },
+        async generalMission() {
+        console.log("generalMission")
             try {
-                // const data = await fetch(
-                //   'http://localhost:3000/activity/recommendation', 
-                //   {
-                //     method: 'POST',
-                //     credentials: 'same-origin',
-                //     headers: {
-                //         'Content-Type': 'application/json'
-                //     },
-                //     body: JSON.stringify({
-                //         skillId: 3,
-                //     })
-                //   }
-                // )
-              const response = await axios.post('http://localhost:3000/activity/recommendation',
+              const general = await axios.post('http://localhost:3000/activity/generalRecommendation',
               {
                 userId:localStorage.userId ,
-                skillId: this.$route.params.id
               })
-              console.log(response)
-              const res = response.data
-              for (const item in res) {
-                console.log(item)
-                this.data.push(res[item])
+              console.log(general)
+              const geRec = general.data
+
+              let DATA = []
+              for (let i = 0; i < 3; i++) {
+                console.log(i)
+                DATA.push(geRec[i])
               }
-              // this.data = data.data
-              console.log(this.data)
+
+              this.data = DATA
+              console.log(DATA)
                 
             } catch (error) {
                 console.log(error)
             }
             
         }
-    }
+      }
 }
 </script>
 

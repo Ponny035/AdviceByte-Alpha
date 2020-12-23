@@ -58,6 +58,15 @@
                                             />
                                             <br />Profile
                                         </li>
+                                        <li @click="logout">
+                                            <svg
+                                                src="../image/logout.svg"
+                                                alt
+                                                class="svg"
+                                                style="color:white"
+                                            />
+                                            <br />Logout
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -74,7 +83,7 @@
                     <div class="card" style="width: 18rem;">
                         <!-- topic ranking -->
                         <div class="border-custom-up">
-                            <p class="cardhd">Weekly Ranking</p>
+                            <p class="cardhd">Monthly Ranking</p>
                         </div>
                         
                         <table class="table table-hover table-light">
@@ -113,12 +122,13 @@
                     <!-- เว้นบรรทัด -->
                     <div class="card" style="width: 18rem;">
                         <div class="border-custom-up">
-                            <p class="cardhd">Daily Mission</p>
+                            <p class="cardhd">Missions For You</p>
                         </div>
                         <table
                             class="table table-hover table-light"
                             style="width: 18rem;"
                         >
+                        <template v-for="(item,i) in data" :key="i">
                             <tbody class="d-flex bd-highlight">
                                 <tr>
                                     <th scope="row" class="type-mission">
@@ -126,15 +136,16 @@
                                     </th>
                                     <td
                                         class="text-left font-custom-list p-2 flex-fill bd-highlight"
-                                        @click="viewQuest"
                                     >
-                                        The Secret Rules of Modern Living
-                                        <p class="mission-detail">
+                                        {{item.Activity_Name}}
+                                        <!-- <p class="mission-detail">
                                             fake detail
-                                        </p>
+                                        </p> -->
                                     </td>
                                 </tr>
+                                
                             </tbody>
+                            </template>
                         </table>
                         <div class="border-custom">
                             <a href="#" class="seemore">See more</a>
@@ -152,13 +163,21 @@ export default {
     data() {
         return {
             ranks: [],
+            data: [],
         };
     },
     mounted() {
       console.log(this.$route.params.id)
       this.ranking()
+      this.generalMission()
     },
     methods: {
+        logout() {
+            localStorage.removeItem('userId')
+            this.$router.push({
+                name: 'Login'
+            })
+        },
         viewMission() {
             this.$router.push({ path: '/mission' })
         },
@@ -172,7 +191,6 @@ export default {
             this.$router.push({ path: '/dashboard' })
         },
         async ranking() {
-        console.log("Ranking TEST")
             try {
               await axios.post('http://localhost:3000/user/ranking',
               {
@@ -188,20 +206,33 @@ export default {
                         });
                     }
                     this.ranks = returnArray;
-                    console.log(returnArray);
               })
-            //   const list = ranks.data
-            //   for (const item in list) {
-            //     console.log(item)
-            //     this.data.push(list[item])
-            //   }
-              // this.data = data.data
-                
+            
             } catch (error) {
                 console.log(error)
             }
             
-        }
+        },
+        async generalMission() {
+              try {
+                const general = await axios.post('http://localhost:3000/activity/generalRecommendation',
+                {
+                  userId:localStorage.userId ,
+                })
+                const geRec = general.data
+
+                let DATA = []
+                for (let i = 0; i < 3; i++) {
+                  DATA.push(geRec[i])
+                }
+
+                this.data = DATA
+              } catch (error) {
+                  console.log(error)
+              }
+              
+          }
+
     }
 }
 </script>
@@ -210,6 +241,10 @@ export default {
 @import '../styles/custom.min.css';
 @import '../styles/custom.scss';
 @import '../styles/custom.css';
+
+.svg { 
+    fill: #FFFFFF;
+}
 
 .type-mission {
     font-family: Poppins;
@@ -240,6 +275,10 @@ export default {
 .content-box {
     padding: 2rem;
     padding-bottom: 4rem;
+}
+
+.card-nav { 
+    height: 380px;
 }
 
 .spacenav {

@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import CenterContext from '../components/CenterContext.vue'
+import CenterContext from '../components/centerContext.vue'
 import Mission from '../components/Mission.vue'
 import Stat from '../components/Stat.vue'
 import Login from '../components/Login.vue'
@@ -11,16 +11,26 @@ import Profile from '../components/components-view/Profile.vue'
 // import Week from '../components/Week.vue';
 import Charty from '../components/components-view/Chart.vue'
 import getForum from '../components/getForum.vue'
+import getGeneral from '../components/getGeneral.vue'
 import Layout from '../components/Layout.vue'
 import Register from '../components/Register.vue'
+import Activity from '../components/Activity.vue'
 import Response from '../components/Response.vue'
+
+const guardAuth = async (to, from, next) => {
+    if (localStorage.getItem('userId')) {
+      next(); // TODO: implement token expire check
+    } else {
+      next({ name: 'Login' });
+    }
+  };
 
 const routes = [
 
     {
         path: '/login',
         component: Login,
-        name: ''
+        name: 'Login'
     },
     {
         path: '/register',
@@ -30,11 +40,12 @@ const routes = [
     {
         path: '/',
         component: Layout,
+        beforeEnter: guardAuth,
         children: [
             {
-                path: '/hello',
-                component: Response,
-                name: ''
+                path: '/activity/:id',
+                component: Activity,
+                name: 'activity-id',
             },
             {
                 path: '',
@@ -71,6 +82,12 @@ const routes = [
                 name: 'mission',
                 children: [
                     {
+                        path: '',
+                        component: getGeneral,
+                        name: 'getGeneral',
+                        meta: {}
+                    },
+                    {
                         path: ':id',
                         component: getMission,
                         name: 'algo',
@@ -97,6 +114,11 @@ const routes = [
                         meta: { displayTitle: 'Stat_Test' }
                     }
                 ]
+            },
+            {
+                path: '/response/:id',
+                component: Response,
+                name: 'response'
             }
         ]
     }
