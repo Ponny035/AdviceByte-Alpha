@@ -8,6 +8,8 @@
 ## Installation (On RHEL7/CENTOS7)
 
  - `sudo setenforce Permissive`
+ - `sudo yum install python3`
+ - `sudo pip install --upgrade mysql-connector-python`
  - `sudo yum install git`
  - `sudo yum install -y yum-utils`
  - `sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo`
@@ -24,6 +26,7 @@
  - `cd /usr/share/nginx/html/app && pm2 start pm2.json`
  - `npm i`
  - Edit .env.production with `VUE_APP_APIURI="http://ip_address/api"`
+ - To edit .env.production cd to the desire folder and `sudo vim .env.production`
  - `npm build`
  - `sudo yum install nginx`
  - `sudo chown -R nginx:nginx /usr/share/nginx/html/app/`
