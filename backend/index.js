@@ -20,14 +20,13 @@ app.use(express.json())
             httpOnly: true
         })
     )
-
-app.get('/', async (req, res) => {
+app.get('/api/', async (req, res) => {
     res.send('Server is working')
 })
 
-app.use('/user', userInformation)
-app.use('/activity', activityInformation)
-app.use('/forum', forumInformation)
+app.use('/api/user', userInformation)
+app.use('/api/activity', activityInformation)
+app.use('/api/forum', forumInformation)
 
 app.listen(process.env.PORT, () => {
     console.log(`> Listening on port ${process.env.PORT}`)

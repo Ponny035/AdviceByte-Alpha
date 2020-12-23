@@ -17,7 +17,6 @@
  - `sudo chmod +x /usr/bin/docker-compose`
  - `sudo systemctl start docker`
  - `git clone https://github.com/Ponny035/AdviceByte-Alpha.git /usr/share/nginx/html/app && cd /usr/share/nginx/html/app`
- - `sudo chown -R nginx:nginx /usr/share/nginx/html/app/`
  - `curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -`
  - `sudo yum install -y nodejs`
  - `sudo npm i pm2@latest -g`
@@ -26,6 +25,7 @@
  - `npm i`
  - `npm build`
  - `sudo yum install nginx`
+ - `sudo chown -R nginx:nginx /usr/share/nginx/html/app/`
  - `sudo vim /etc/nginx/nginx.conf`
  ```nginx
 user nginx;
@@ -60,7 +60,7 @@ http {
             try_files $uri $uri/ /index.html;
         }
         location /api {
-            proxy_pass http://127.0.0.1:3000/;
+            proxy_pass http://127.0.0.1:3000;
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection 'upgrade';
