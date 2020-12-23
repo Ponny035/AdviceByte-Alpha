@@ -27,7 +27,7 @@ export default {
     methods: {
         async getResponse() {
             await axios
-                .post(`${process.env.API_URI}/forum/commentInformation`, {
+                .post(`${process.env.VUE_APP_API_URI}/forum/commentInformation`, {
                     forumId: parseInt(this.$route.params.id, 10)
                 })
                 .then(response => {

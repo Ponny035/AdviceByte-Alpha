@@ -195,7 +195,7 @@ export default {
         async ranking() {
             try {
                 await axios
-                    .post('${process.env.API_URI}/user/ranking', {
+                    .post('${process.env.VUE_APP_API_URI}/user/ranking', {
                         userId: localStorage.userId
                     })
                     .then(response => {
@@ -217,7 +217,7 @@ export default {
         async generalMission() {
             try {
                 const general = await axios.post(
-                    `${process.env.API_URI}/activity/generalRecommendation`,
+                    `${process.env.VUE_APP_API_URI}/activity/generalRecommendation`,
                     {
                         userId: localStorage.userId
                     }

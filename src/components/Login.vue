@@ -91,7 +91,7 @@ export default {
     methods: {
         async checkForm() {
             try {
-                // const data = await fetch('${process.env.API_URI}/user/login', {
+                // const data = await fetch('${process.env.VUE_APP_API_URI}/user/login', {
                 // method: 'POST',
                 // credentials: 'same-origin',
                 // headers: {
@@ -103,7 +103,7 @@ export default {
                 // })
 
                 const data = await axios.post(
-                    `${process.env.API_URI}/user/login`,
+                    `${process.env.VUE_APP_API_URI}/user/login`,
                     {
                         username: this.username,
                         password: this.password
