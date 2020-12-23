@@ -7,7 +7,8 @@
         "exec_mode": "cluster",
         "env": {
           "process.env.SECRET": "THIS_IS_A_SECRET",
-          "PORT": "3000"
+          "PORT": "3000",
+          "PASSWORD": "advicebyte"
         }
       }
     ]
