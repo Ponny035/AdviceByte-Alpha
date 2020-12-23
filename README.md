@@ -9,7 +9,7 @@
 
  - `sudo setenforce Permissive`
  - `sudo yum install python3`
- - `sudo pip install --upgrade mysql-connector-python`
+ - `sudo pip3 install --upgrade mysql-connector-python`
  - `sudo yum install git`
  - `sudo yum install -y yum-utils`
  - `sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo`
@@ -19,12 +19,27 @@
  - `sudo chmod +x /usr/bin/docker-compose`
  - `sudo systemctl start docker`
  - `git clone https://github.com/Ponny035/AdviceByte-Alpha.git /usr/share/nginx/html/app && cd /usr/share/nginx/html/app`
+ - `cd ./AdviceByte-Alpha`
+ - `npm i`
+ - `cd ./Recommendation System/Cluster/`
+ - `vim connectDB`
+ ```
+    import mysql.connector
+    mydb = mysql.connector.connect(
+      host="localhost:3306",
+      user="root",
+      password="advicebyte",
+      database="AdviceByte"
+    )
+ ```
+ `cd ../../backend/connectDB.py`
+ `vim connectDB` again, copy the same code as above
+ - Within the folder 
  - `curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -`
  - `sudo yum install -y nodejs`
  - `sudo npm i pm2@latest -g`
  - `cd /usr/share/nginx/html/app/sql && sudo docker-compose up -d`
  - `cd /usr/share/nginx/html/app && pm2 start pm2.json`
- - `npm i`
  - Edit .env.production with `VUE_APP_APIURI="http://ip_address/api"`
  - To edit .env.production cd to the desire folder and `sudo vim .env.production`
  - `npm build`
@@ -57,7 +72,7 @@ http {
         listen       80 default_server;
         listen       [::]:80 default_server;
         server_name  _;
-        root         /usr/share/nginx/html/app/dist;
+        root         /homme/nginx/AdviceByte-Alpha/dist;
         include /etc/nginx/default.d/*.conf;
         location / {
             index index.html;
