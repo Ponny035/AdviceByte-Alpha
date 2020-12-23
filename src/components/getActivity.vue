@@ -29,23 +29,21 @@
                         v-model="comment"
                         type="text"
                         class="form-control"
-                        aria-label="Text input with radio button">
+                        aria-label="Text input with radio button"
+                    />
                 </div>
 
                 <div class="Footer" style="padding-bottom: 10%"></div>
             </div>
         </div>
-        <button
-            @click="submitComment()"
-            type="button"
-            class="btn btn-primary">
+        <button @click="submitComment()" type="button" class="btn btn-primary">
             Submit
         </button>
     </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
     methods: {
@@ -54,30 +52,32 @@ export default {
         },
         submitComment() {
             if (this.comment != '') {
-                axios.post('http://localhost:3000/forum/addComment', {
-                    forumId: this.$route.params.id,
-                    comment: this.comment,
-                    userId:localStorage.userId ,
-                }).then(response => {
-                    if (response.status === 200) this.$router.push({ name: 'dashboard' });
-                }).catch(err => console.log(err));
+                axios
+                    .post(`${process.env.VUE_APP_APIURI}/forum/addComment`, {
+                        forumId: this.$route.params.id,
+                        comment: this.comment,
+                        userId: localStorage.userId
+                    })
+                    .then(response => {
+                        if (response.status === 200)
+                            this.$router.push({ name: 'dashboard' })
+                    })
+                    .catch(err => console.log(err))
             }
-        },
+        }
     },
     data() {
         return {
-            comment: '',
+            comment: ''
         }
     },
-    components: {
-    
-    },
-    props: { 
-        forum: { 
+    components: {},
+    props: {
+        forum: {
             default() {
                 return {
                     Activity_Name: '',
-                    Activity_Description: '',
+                    Activity_Description: ''
                 }
             }
         }

@@ -3,12 +3,12 @@
         <!-- show tree -->
         <div class="">
             <template v-if="colorForPosition">
-                <img :src="dataUrl" class="Tree" /> 
+                <img :src="dataUrl" class="Tree" />
             </template>
             <div>
                 <!-- {{ colorForPosition }}
                 {{ svgStr }} -->
-            </div>    
+            </div>
         </div>
     </div>
 </template>
@@ -27,7 +27,7 @@ export default {
         try {
             console.log(localStorage.userId)
 
-            const response = await axios.post('http://localhost:3000/user/tree',
+            const response = await axios.post(`${process.env.VUE_APP_APIURI}/user/tree`,
             {
                 userId:localStorage.userId
                 // skillId: this.$route.params.id

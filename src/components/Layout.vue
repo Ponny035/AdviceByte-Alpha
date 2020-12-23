@@ -85,13 +85,16 @@
                         <div class="border-custom-up">
                             <p class="cardhd">Monthly Ranking</p>
                         </div>
-                        
+
                         <table class="table table-hover table-light">
                             <tbody>
-                                <template v-for="(item,i) in ranks" :key="i">
+                                <template v-for="(item, i) in ranks" :key="i">
                                     <tr>
                                         <!-- ลำดับ user -->
-                                        <th scope="row" class="font-custom-list">
+                                        <th
+                                            scope="row"
+                                            class="font-custom-list"
+                                        >
                                             {{ item.rank }}
                                         </th>
                                         <td class>
@@ -103,7 +106,7 @@
                                         </td>
                                         <!-- ชื่อ users -->
                                         <td class="font-custom-list">
-                                            {{item.user}}
+                                            {{ item.user }}
                                         </td>
                                         <!-- ช่องว่างหลังชื่อไว้ก่อน -->
                                         <td class="font-custom-list"></td>
@@ -112,7 +115,7 @@
                             </tbody>
                         </table>
                         <!-- จบไส้แรงค์ -->
-                        
+
                         <div class="border-custom">
                             <a href="#" class="seemore">See more</a>
                         </div>
@@ -128,23 +131,22 @@
                             class="table table-hover table-light"
                             style="width: 18rem;"
                         >
-                        <template v-for="(item,i) in data" :key="i">
-                            <tbody class="d-flex bd-highlight">
-                                <tr>
-                                    <th scope="row" class="type-mission">
-                                        [Daily]
-                                    </th>
-                                    <td
-                                        class="text-left font-custom-list p-2 flex-fill bd-highlight"
-                                    >
-                                        {{item.Activity_Name}}
-                                        <!-- <p class="mission-detail">
+                            <template v-for="(item, i) in data" :key="i">
+                                <tbody class="d-flex bd-highlight">
+                                    <tr>
+                                        <th scope="row" class="type-mission">
+                                            [Daily]
+                                        </th>
+                                        <td
+                                            class="text-left font-custom-list p-2 flex-fill bd-highlight"
+                                        >
+                                            {{ item.Activity_Name }}
+                                            <!-- <p class="mission-detail">
                                             fake detail
                                         </p> -->
-                                    </td>
-                                </tr>
-                                
-                            </tbody>
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </template>
                         </table>
                         <div class="border-custom">
@@ -163,13 +165,13 @@ export default {
     data() {
         return {
             ranks: [],
-            data: [],
-        };
+            data: []
+        }
     },
     mounted() {
-      console.log(this.$route.params.id)
-      this.ranking()
-      this.generalMission()
+        console.log(this.$route.params.id)
+        this.ranking()
+        this.generalMission()
     },
     methods: {
         logout() {
@@ -192,47 +194,46 @@ export default {
         },
         async ranking() {
             try {
-              await axios.post('http://localhost:3000/user/ranking',
-              {
-                userId:localStorage.userId ,
-              }).then(response => {
-                    const returnArray = [];
-                    const id = JSON.parse(response.data[0]);
-                    const rank = JSON.parse(response.data[1]);
-                    for(let i = 0; i < id.length; i += 1) {
-                        returnArray.push({
-                            user: id[i],
-                            rank: rank[i],
-                        });
-                    }
-                    this.ranks = returnArray;
-              })
-            
+                await axios
+                    .post('${process.env.VUE_APP_APIURI}/user/ranking', {
+                        userId: localStorage.userId
+                    })
+                    .then(response => {
+                        const returnArray = []
+                        const id = JSON.parse(response.data[0])
+                        const rank = JSON.parse(response.data[1])
+                        for (let i = 0; i < id.length; i += 1) {
+                            returnArray.push({
+                                user: id[i],
+                                rank: rank[i]
+                            })
+                        }
+                        this.ranks = returnArray
+                    })
             } catch (error) {
                 console.log(error)
             }
-            
         },
         async generalMission() {
-              try {
-                const general = await axios.post('http://localhost:3000/activity/generalRecommendation',
-                {
-                  userId:localStorage.userId ,
-                })
+            try {
+                const general = await axios.post(
+                    `${process.env.VUE_APP_APIURI}/activity/generalRecommendation`,
+                    {
+                        userId: localStorage.userId
+                    }
+                )
                 const geRec = general.data
 
                 let DATA = []
                 for (let i = 0; i < 3; i++) {
-                  DATA.push(geRec[i])
+                    DATA.push(geRec[i])
                 }
 
                 this.data = DATA
-              } catch (error) {
-                  console.log(error)
-              }
-              
-          }
-
+            } catch (error) {
+                console.log(error)
+            }
+        }
     }
 }
 </script>
@@ -242,8 +243,8 @@ export default {
 @import '../styles/custom.scss';
 @import '../styles/custom.css';
 
-.svg { 
-    fill: #FFFFFF;
+.svg {
+    fill: #ffffff;
 }
 
 .type-mission {
@@ -277,7 +278,7 @@ export default {
     padding-bottom: 4rem;
 }
 
-.card-nav { 
+.card-nav {
     height: 380px;
 }
 

@@ -19,14 +19,13 @@ import Response from '../components/Response.vue'
 
 const guardAuth = async (to, from, next) => {
     if (localStorage.getItem('userId')) {
-      next(); // TODO: implement token expire check
+        next() // TODO: implement token expire check
     } else {
-      next({ name: 'Login' });
+        next({ name: 'Login' })
     }
-  };
+}
 
 const routes = [
-
     {
         path: '/login',
         component: Login,
@@ -45,12 +44,12 @@ const routes = [
             {
                 path: '/activity/:id',
                 component: Activity,
-                name: 'activity-id',
+                name: 'activity-id'
             },
             {
                 path: '',
                 name: 'home',
-                redirect: { name: 'profile'},
+                redirect: { name: 'profile' }
             },
             {
                 path: '/chart',
@@ -67,13 +66,13 @@ const routes = [
                         path: '',
                         component: getDashboard,
                         name: 'getDashboard',
-                        meta: {},
+                        meta: {}
                     },
                     {
                         path: '',
                         component: getForum,
                         name: '1'
-                    },
+                    }
                 ]
             },
             {

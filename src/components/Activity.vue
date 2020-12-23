@@ -6,18 +6,18 @@
                 <div class="bg-white p-3 mb rounded box-try">
                     <div class="row justify-content-between">
                         <!-- ชื่อของ -->
-                         <div class="getActivity" v-if="forum.Is_Forum">
-                             <!-- <div class="getActivity" v-if="isForum in data === '1'"> -->
+                        <div class="getActivity" v-if="forum.Is_Forum">
+                            <!-- <div class="getActivity" v-if="isForum in data === '1'"> -->
                             <Activity :forum="forum"></Activity>
                         </div>
-                <div class="getActivity" v-else>
-                    <!-- <div class="getActivity" v-else-if="isForum in data === '0'"> -->
-                    <Activito :forum="forum"></Activito>
-                </div>
+                        <div class="getActivity" v-else>
+                            <!-- <div class="getActivity" v-else-if="isForum in data === '0'"> -->
+                            <Activito :forum="forum"></Activito>
+                        </div>
                     </div>
                 </div>
                 <!-- Response -->
-               
+
                 <div class="Footer" style="padding-bottom: 10%"></div>
             </div>
         </div>
@@ -30,19 +30,19 @@ import Activity from './getActivity' //มีปุ่มส่ง
 import Activito from './Activity_0' // ไม่มีปุ่มส่ง
 
 export default {
-     data() {
+    data() {
         return {
-            forum:{
+            forum: {
                 Is_Forum: 1
             },
-            forumId:''
-        };
+            forumId: ''
+        }
     },
     async mounted() {
-      console.log(this.$route.params.id)
-      console.log("HEELOO")
-      await this.activities()
-      console.log("HEELOO ITU")
+        console.log(this.$route.params.id)
+        console.log('HEELOO')
+        await this.activities()
+        console.log('HEELOO ITU')
     },
     components: {
         Activito,
@@ -50,23 +50,23 @@ export default {
     },
     methods: {
         async activities() {
-            console.log("avtivities")
-                try {
-                    const response = await axios.post('http://localhost:3000/activity/information',
+            console.log('avtivities')
+            try {
+                const response = await axios.post(
+                    `${process.env.VUE_APP_APIURI}/activity/information`,
                     {
-                    activityId: parseInt(this.$route.params.id, 10),
-                    })
-                    console.log(response)
-                    const res = response.data
+                        activityId: parseInt(this.$route.params.id, 10)
+                    }
+                )
+                console.log(response)
+                const res = response.data
 
-                    this.forum = res[0]
-                    console.log(res)
-
-                } catch (error) {
-                  console.log(error)
-                }
+                this.forum = res[0]
+                console.log(res)
+            } catch (error) {
+                console.log(error)
+            }
         }
-
     }
 }
 </script>

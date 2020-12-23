@@ -29,23 +29,69 @@
                 </div>
                 <div class="catagory">
                     <div class="container">
-                    <div calss="row">
-                        <button @click="path(1)" type="button" class="button btn btn-light">Algorithm</button>
-                        <button @click="path(2)" type="button" class="button btn btn-light">Data Structure</button>
-                        <button @click="path(3)" type="button" class="button btn btn-light">Coding</button>
+                        <div calss="row">
+                            <button
+                                @click="path(1)"
+                                type="button"
+                                class="button btn btn-light"
+                            >
+                                Algorithm
+                            </button>
+                            <button
+                                @click="path(2)"
+                                type="button"
+                                class="button btn btn-light"
+                            >
+                                Data Structure
+                            </button>
+                            <button
+                                @click="path(3)"
+                                type="button"
+                                class="button btn btn-light"
+                            >
+                                Coding
+                            </button>
+                        </div>
+                        <div calss="row">
+                            <button
+                                @click="path(4)"
+                                type="button"
+                                class="button btn btn-light"
+                            >
+                                Mathematic
+                            </button>
+                            <button
+                                @click="path(6)"
+                                type="button"
+                                class="button btn btn-light"
+                            >
+                                Communicate
+                            </button>
+                            <button
+                                @click="path(5)"
+                                type="button"
+                                class="button btn btn-light"
+                            >
+                                Laguage
+                            </button>
+                        </div>
+                        <div calss="row">
+                            <button
+                                @click="path(8)"
+                                type="button"
+                                class="button btn btn-light"
+                            >
+                                Self-Motivation
+                            </button>
+                            <button
+                                @click="path(7)"
+                                type="button"
+                                class="button btn btn-light"
+                            >
+                                Problem Solving
+                            </button>
+                        </div>
                     </div>
-                    <div calss="row">
-                        <button @click="path(4)" type="button" class="button btn btn-light">Mathematic</button>
-                        <button @click="path(6)" type="button" class="button btn btn-light">Communicate</button>
-                        <button @click="path(5)" type="button" class="button btn btn-light">Laguage</button>
-                    </div>
-                    <div calss="row">
-                        <button @click="path(8)" type="button" class="button btn btn-light">Self-Motivation</button>
-                        <button @click="path(7)" type="button" class="button btn btn-light">Problem Solving</button>
-                        
-                    </div>
-                    
-                </div>
                 </div>
             </div>
         </div>
@@ -53,37 +99,33 @@
 </template>
 
 <script>
-
 export default {
-     methods: {
-         path(n){
-             this.$router.push({path: `/mission/${n}`});
-         }
-     }
-
+    methods: {
+        path(n) {
+            this.$router.push({ path: `/mission/${n}` })
+        }
+    }
 }
 </script>
 
 <style>
-
 /* .mission {
 
 } */
-.btn-catagory { 
+.btn-catagory {
     background-color: #5f6b93;
 }
 
 .catagory {
-    padding-bottom: 10%
+    padding-bottom: 10%;
 }
 
-.button { 
+.button {
     width: 150px;
     height: 150px;
     margin-left: 20px;
     margin-top: 20px;
 }
-
 
 .topic-font {
     padding: 0.25rem;
@@ -103,6 +145,4 @@ export default {
 /* .box-try {
   margin-bottom: ;
 } */
-
-
 </style>

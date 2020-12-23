@@ -6,10 +6,7 @@ import store from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-
 // import Chartkick from 'vue-chartkick'
-
-
 
 // Vue.use(Chartkick.use(Chart))
 

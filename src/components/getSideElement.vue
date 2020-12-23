@@ -150,7 +150,7 @@ export default {
         },
         viewDashboard() {
             this.$router.push({ path: '/dashboard' })
-        },
+        }
     }
 }
 </script>

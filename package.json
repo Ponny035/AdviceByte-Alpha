@@ -19,6 +19,7 @@
     "cookie-session": "^1.4.0",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
+    "express": "^4.17.1",
     "mysql": "^2.18.1",
     "python-shell": "^2.0.3",
     "register-service-worker": "^1.7.1",

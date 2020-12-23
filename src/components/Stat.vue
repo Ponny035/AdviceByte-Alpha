@@ -27,10 +27,10 @@
 </template>
 
 <script>
-import Chart from './components-view/Chart';
+import Chart from './components-view/Chart'
 export default {
-    components: { 
-        Chart,
+    components: {
+        Chart
     },
     name: 'HelloWorld',
     data() {
@@ -46,7 +46,7 @@ export default {
 .stat {
     margin-left: 5%;
 }
-.empty-box{
+.empty-box {
     padding-bottom: 25%;
     padding-left: 12%;
     padding-top: 5%;

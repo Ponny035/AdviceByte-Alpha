@@ -1,45 +1,50 @@
 <template>
-<!-- ไว้เรียก Mission แต่ละอันในแต่ละหมวด ถ้าเขาเข้า /algo ก็โชว์มิชชั่น algo
+    <!-- ไว้เรียก Mission แต่ละอันในแต่ละหมวด ถ้าเขาเข้า /algo ก็โชว์มิชชั่น algo
 ถ้าเขา /commu ก็โชว์ Mission commu -->
-  <div class="MissionBox" name="stagebox">
-    <br>
-        <template v-for="(item,i) in data" :key="i">
-                <!-- เริ่ม_กล่องโค้ดขาว -->
-          <div class="shadow-sm mission-stagee bg-white justify-content-sm-center">
-            <div class="container">
-              <div class="row">
-                <!-- content mission stage -->
-                <!-- star rate -->
-                <div colspan="2"></div>
-                <!-- mission name -->
-                
-                  <div class="col-9 text-left">
-                  <p class="font-test1">{{item.Activity_Name}}</p>
-                  </div>
-                  <div class="col-9 text-left">
-                  <p class="font-test2">{{item.Activity_Description}}</p>
-                </div>
-                <div class="hastag-mission">
-                    <!-- <div class="badge badge-info">#Communication</div>
+    <div class="MissionBox" name="stagebox">
+        <br />
+        <template v-for="(item, i) in data" :key="i">
+            <!-- เริ่ม_กล่องโค้ดขาว -->
+            <div
+                class="shadow-sm mission-stagee bg-white justify-content-sm-center"
+            >
+                <div class="container">
+                    <div class="row">
+                        <!-- content mission stage -->
+                        <!-- star rate -->
+                        <div colspan="2"></div>
+                        <!-- mission name -->
+
+                        <div class="col-9 text-left">
+                            <p class="font-test1">{{ item.Activity_Name }}</p>
+                        </div>
+                        <div class="col-9 text-left">
+                            <p class="font-test2">
+                                {{ item.Activity_Description }}
+                            </p>
+                        </div>
+                        <div class="hastag-mission">
+                            <!-- <div class="badge badge-info">#Communication</div>
                     <div class="badge badge-success">#Language</div> -->
-                  </div>
-            
-                <!-- button mission -->
-                <div class="col">
-                  <button
-                    type="button"
-                    @click="viewForum(item.Activity_ID)"
-                    class="btn btn-primary"
-                    data-toggle="button"
-                    aria-pressed="false"
-                  >Start
-                  </button>
+                        </div>
+
+                        <!-- button mission -->
+                        <div class="col">
+                            <button
+                                type="button"
+                                @click="viewForum(item.Activity_ID)"
+                                class="btn btn-primary"
+                                data-toggle="button"
+                                aria-pressed="false"
+                            >
+                                Start
+                            </button>
+                        </div>
+                    </div>
+                    <br />
+                    <!-- จบกล่องโค้ดขาว -->
                 </div>
-              </div>
-              <br>
-              <!-- จบกล่องโค้ดขาว -->
             </div>
-          </div>
         </template>
 
         <!-- เริ่ม_กล่องโค้ดเขียว
@@ -80,7 +85,7 @@
               จบกล่องโค้ดขาว
             </div>
           </div> -->
-  </div>
+    </div>
 </template>
 
 <script>
@@ -88,22 +93,22 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            data:[]
+            data: []
         }
     },
     mounted() {
-      console.log(this.$route.params.id)
-      this.mission()
+        console.log(this.$route.params.id)
+        this.mission()
     },
     methods: {
-      viewForum(id) {
-        this.$router.push({ name: 'activity-id', params: { id: id }});
+        viewForum(id) {
+            this.$router.push({ name: 'activity-id', params: { id: id } })
         },
         async mission() {
-        console.log("TEST2")
+            console.log('TEST2')
             try {
                 // const data = await fetch(
-                //   'http://localhost:3000/activity/recommendation', 
+                //   '${process.env.VUE_APP_APIURI}/activity/recommendation',
                 //   {
                 //     method: 'POST',
                 //     credentials: 'same-origin',
@@ -115,24 +120,24 @@ export default {
                 //     })
                 //   }
                 // )
-              const response = await axios.post('http://localhost:3000/activity/recommendation',
-              {
-                userId:localStorage.userId ,
-                skillId: this.$route.params.id
-              })
-              console.log(response)
-              const res = response.data
-              for (const item in res) {
-                console.log(item)
-                this.data.push(res[item])
-              }
-              // this.data = data.data
-              console.log(this.data)
-                
+                const response = await axios.post(
+                    `${process.env.VUE_APP_APIURI}/activity/recommendation`,
+                    {
+                        userId: localStorage.userId,
+                        skillId: this.$route.params.id
+                    }
+                )
+                console.log(response)
+                const res = response.data
+                for (const item in res) {
+                    console.log(item)
+                    this.data.push(res[item])
+                }
+                // this.data = data.data
+                console.log(this.data)
             } catch (error) {
                 console.log(error)
             }
-            
         }
     }
 }
@@ -140,15 +145,15 @@ export default {
 
 <style>
 .bg-green {
-  background-color:#e7ffcd;
+    background-color: #e7ffcd;
 }
 
 .mission-button {
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 0%;
-  border-radius: 12px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 0%;
+    border-radius: 12px;
 }
 
 .hastag-mission {
@@ -181,13 +186,11 @@ export default {
     font-family: Poppins;
     font-size: 12px;
     color: #575757a1;
-} 
+}
 
 /* .font-hastag {
     font-family: Poppins;
     font-size: 1px;
     color: #e9e9e9;
 } */
-
-
 </style>
