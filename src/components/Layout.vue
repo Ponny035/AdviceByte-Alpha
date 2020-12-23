@@ -195,7 +195,7 @@ export default {
         async ranking() {
             try {
                 await axios
-                    .post('${process.env.VUE_APP_APIURI}/user/ranking', {
+                    .post(`${process.env.VUE_APP_APIURI}/user/ranking`, {
                         userId: localStorage.userId
                     })
                     .then(response => {
