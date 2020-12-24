@@ -8,6 +8,8 @@
 ## Installation (On RHEL7/CENTOS7)
 
  - `sudo setenforce Permissive`
+ - `sudo yum install ssubscription-manager`
+ - `sudo subscription-manager register --username=<USER_NAME> --password=<PASSWORD> --auto-attach
  - `sudo yum install python3`
  - `sudo pip3 install --upgrade mysql-connector-python`
  - `sudo yum install git`
