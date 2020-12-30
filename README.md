@@ -2,10 +2,10 @@
 
 ## Documentation 
 ```
-  https://www.notion.so/Intro-to-myDose-c22a58d92702443591020d98a837b80b
+  https://www.notion.so/advicebyte/Introduce-to-AdviceByte-c22a58d92702443591020d98a837b80b
  ```
 
-## Installation (On RHEL7/CENTOS7)
+## Installation (On RHEL8/CENTOS7)
 
  - `sudo setenforce Permissive`
  - `sudo yum install python3`
@@ -100,3 +100,6 @@ http {
 }
 ```
 - `sudo systemctl restart nginx`
+-	`sudo firewall-cmd --add-port=8080/tcp`
+-	`sudo firewall-cmd reload`
+
