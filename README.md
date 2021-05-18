@@ -1,5 +1,7 @@
 # AdviceByte
 
+My senior project
+
 ## Documentation 
 ```
   https://www.notion.so/advicebyte/Introduce-to-AdviceByte-c22a58d92702443591020d98a837b80b
